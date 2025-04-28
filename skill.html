@@ -941,201 +941,201 @@
                 </div>
             </div>
         </div>
+    </section>
+    <footer class="footer">
+        © 2025 Dhruv Tripathi. All Rights Reserved.
+    </footer>
 
-        <footer class="footer">
-            © 2025 Dhruv Tripathi. All Rights Reserved.
-        </footer>
+    <!-- Scripts with defer to improve loading performance -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+    <script>document.addEventListener("DOMContentLoaded", function () {
+            // Initialize AOS
+            AOS.init({
+                once: true,
+                disable: 'mobile'
+            });
 
-        <!-- Scripts with defer to improve loading performance -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
-        <script>document.addEventListener("DOMContentLoaded", function () {
-                // Initialize AOS
-                AOS.init({
-                    once: true,
-                    disable: 'mobile'
-                });
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
 
-                // Check for saved theme preference
-                const savedTheme = localStorage.getItem('theme') || 'dark';
-                const themeToggle = document.getElementById('theme-toggle');
-                const themeIcon = themeToggle.querySelector('i');
+            // Apply saved theme
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
 
-                // Apply saved theme
-                if (savedTheme === 'light') {
-                    document.body.classList.add('light-mode');
+            // Theme toggle functionality
+            themeToggle.addEventListener('click', function () {
+                document.body.classList.toggle('light-mode');
+                const isDark = !document.body.classList.contains('light-mode');
+
+                // Save preference
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+                // Change icon
+                if (isDark) {
+                    themeIcon.classList.replace('fa-sun', 'fa-moon');
+                } else {
                     themeIcon.classList.replace('fa-moon', 'fa-sun');
                 }
 
-                // Theme toggle functionality
-                themeToggle.addEventListener('click', function () {
-                    document.body.classList.toggle('light-mode');
-                    const isDark = !document.body.classList.contains('light-mode');
+                // Update charts
+                updateCharts();
+            });
 
-                    // Save preference
-                    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            // Mobile Menu Toggle
+            const mobileMenu = document.getElementById("mobile-menu");
+            const navLinks = document.getElementById("nav-links");
 
-                    // Change icon
-                    if (isDark) {
-                        themeIcon.classList.replace('fa-sun', 'fa-moon');
-                    } else {
-                        themeIcon.classList.replace('fa-moon', 'fa-sun');
-                    }
+            mobileMenu.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+                mobileMenu.classList.toggle("active");
+            });
 
-                    // Update charts
-                    updateCharts();
-                });
+            // Skill Category Tabs
+            const skillTabs = document.querySelectorAll('.skill-tab');
+            const skillCategories = document.querySelectorAll('.skill-category');
 
-                // Mobile Menu Toggle
-                const mobileMenu = document.getElementById("mobile-menu");
-                const navLinks = document.getElementById("nav-links");
+            skillTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    skillTabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
 
-                mobileMenu.addEventListener("click", () => {
-                    navLinks.classList.toggle("active");
-                    mobileMenu.classList.toggle("active");
-                });
-
-                // Skill Category Tabs
-                const skillTabs = document.querySelectorAll('.skill-tab');
-                const skillCategories = document.querySelectorAll('.skill-category');
-
-                skillTabs.forEach(tab => {
-                    tab.addEventListener('click', () => {
-                        // Remove active class from all tabs
-                        skillTabs.forEach(t => t.classList.remove('active'));
-                        // Add active class to clicked tab
-                        tab.classList.add('active');
-
-                        // Hide all skill categories
-                        skillCategories.forEach(category => {
-                            category.classList.remove('active');
-                        });
-
-                        // Show the selected category
-                        const categoryId = tab.getAttribute('data-category');
-                        document.getElementById(categoryId).classList.add('active');
+                    // Hide all skill categories
+                    skillCategories.forEach(category => {
+                        category.classList.remove('active');
                     });
+
+                    // Show the selected category
+                    const categoryId = tab.getAttribute('data-category');
+                    document.getElementById(categoryId).classList.add('active');
                 });
+            });
 
-                // GSAP Animations
-                gsap.from("nav", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
+            // GSAP Animations
+            gsap.from("nav", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
 
-                // Animate progress bars when they come into view
-                const animateProgressBars = () => {
-                    document.querySelectorAll('.progress-bar-fill').forEach(bar => {
-                        const progress = bar.getAttribute('data-progress');
-                        bar.style.width = progress + '%';
-                    });
-                };
+            // Animate progress bars when they come into view
+            const animateProgressBars = () => {
+                document.querySelectorAll('.progress-bar-fill').forEach(bar => {
+                    const progress = bar.getAttribute('data-progress');
+                    bar.style.width = progress + '%';
+                });
+            };
 
-                // Initialize with a small delay to ensure proper animation
-                setTimeout(animateProgressBars, 500);
+            // Initialize with a small delay to ensure proper animation
+            setTimeout(animateProgressBars, 500);
 
-                // Initialize Charts
-                let communicationChart, teamworkChart, problemSolvingChart;
+            // Initialize Charts
+            let communicationChart, teamworkChart, problemSolvingChart;
 
-                const createChart = (id, label, data, color) => {
-                    // Determine text color based on current theme
-                    const isDarkMode = !document.body.classList.contains('light-mode');
-                    const textColor = isDarkMode ? '#f8fafc' : '#0f172a';
+            const createChart = (id, label, data, color) => {
+                // Determine text color based on current theme
+                const isDarkMode = !document.body.classList.contains('light-mode');
+                const textColor = isDarkMode ? '#f8fafc' : '#0f172a';
 
-                    return new Chart(document.getElementById(id), {
-                        type: "doughnut",
-                        data: {
-                            labels: [label, ""],
-                            datasets: [{
-                                data: [data, 100 - data],
-                                backgroundColor: [color, isDarkMode ? '#333' : '#eee'],
-                                borderWidth: 0
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            cutout: '75%',
-                            plugins: {
-                                legend: {
-                                    display: true,
-                                    position: 'bottom',
-                                    labels: {
-                                        color: textColor,
-                                        font: {
-                                            size: 14,
-                                            family: "'Poppins', sans-serif"
-                                        }
+                return new Chart(document.getElementById(id), {
+                    type: "doughnut",
+                    data: {
+                        labels: [label, ""],
+                        datasets: [{
+                            data: [data, 100 - data],
+                            backgroundColor: [color, isDarkMode ? '#333' : '#eee'],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '75%',
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'bottom',
+                                labels: {
+                                    color: textColor,
+                                    font: {
+                                        size: 14,
+                                        family: "'Poppins', sans-serif"
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function (context) {
+                                        return context.raw + '%';
                                     }
                                 },
-                                tooltip: {
-                                    callbacks: {
-                                        label: function (context) {
-                                            return context.raw + '%';
-                                        }
-                                    },
-                                    titleColor: textColor,
-                                    bodyColor: textColor,
-                                    backgroundColor: isDarkMode ? 'rgba(15, 23, 42, 0.8)' : 'rgba(248, 250, 252, 0.8)',
-                                    borderColor: isDarkMode ? '#1e293b' : '#e2e8f0',
-                                    borderWidth: 1
-                                }
+                                titleColor: textColor,
+                                bodyColor: textColor,
+                                backgroundColor: isDarkMode ? 'rgba(15, 23, 42, 0.8)' : 'rgba(248, 250, 252, 0.8)',
+                                borderColor: isDarkMode ? '#1e293b' : '#e2e8f0',
+                                borderWidth: 1
                             }
                         }
-                    });
-                };
+                    }
+                });
+            };
 
-                function initCharts() {
-                    communicationChart = createChart("communication-chart", "Communication", 85, '#ff5733');
-                    teamworkChart = createChart("teamwork-chart", "Teamwork", 90, '#007bff');
-                    problemSolvingChart = createChart("problem-solving-chart", "Problem Solving", 88, '#28a745');
-                }
+            function initCharts() {
+                communicationChart = createChart("communication-chart", "Communication", 85, '#ff5733');
+                teamworkChart = createChart("teamwork-chart", "Teamwork", 90, '#007bff');
+                problemSolvingChart = createChart("problem-solving-chart", "Problem Solving", 88, '#28a745');
+            }
 
-                // Initialize charts
+            // Initialize charts
+            initCharts();
+
+            // Function to update charts when theme changes
+            function updateCharts() {
+                // Destroy old charts
+                communicationChart.destroy();
+                teamworkChart.destroy();
+                problemSolvingChart.destroy();
+
+                // Re-initialize with correct colors
                 initCharts();
+            }
 
-                // Function to update charts when theme changes
-                function updateCharts() {
-                    // Destroy old charts
-                    communicationChart.destroy();
-                    teamworkChart.destroy();
-                    problemSolvingChart.destroy();
+            // Handle visibility changes for proper animations
+            document.addEventListener('visibilitychange', function () {
+                if (document.visibilityState === 'visible') {
+                    // Re-initialize AOS animations when tab becomes visible again
+                    AOS.refresh();
 
-                    // Re-initialize with correct colors
-                    initCharts();
+                    // Re-animate progress bars
+                    animateProgressBars();
                 }
+            });
 
-                // Handle visibility changes for proper animations
-                document.addEventListener('visibilitychange', function () {
-                    if (document.visibilityState === 'visible') {
-                        // Re-initialize AOS animations when tab becomes visible again
-                        AOS.refresh();
-
-                        // Re-animate progress bars
+            // Add scroll trigger for progress bars
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
                         animateProgressBars();
                     }
                 });
+            }, { threshold: 0.1 });
 
-                // Add scroll trigger for progress bars
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            animateProgressBars();
-                        }
-                    });
-                }, { threshold: 0.1 });
+            // Observe the skill categories
+            document.querySelectorAll('.skill-category').forEach(category => {
+                observer.observe(category);
+            });
 
-                // Observe the skill categories
-                document.querySelectorAll('.skill-category').forEach(category => {
-                    observer.observe(category);
-                });
-
-                // Lazy load images
-                const lazyImages = document.querySelectorAll('img[data-src]');
-                lazyImages.forEach(img => {
-                    img.src = img.dataset.src;
-                    img.onload = () => {
-                        img.removeAttribute('data-src');
-                    };
-                });
-            });</script>
+            // Lazy load images
+            const lazyImages = document.querySelectorAll('img[data-src]');
+            lazyImages.forEach(img => {
+                img.src = img.dataset.src;
+                img.onload = () => {
+                    img.removeAttribute('data-src');
+                };
+            });
+        });</script>
 </body>
 
 </html>
