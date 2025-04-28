@@ -4,31 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Dhruv Tripathi | Full-Stack Developer</title>
+    <title>Dhruv Tripathi | Technical Skills</title>
     <meta name="description"
-        content="Get in touch with Dhruv Tripathi for web development projects, cloud solutions, or technical consultations. Available for freelance opportunities and collaborations.">
+        content="Explore Dhruv Tripathi's comprehensive technical skills in full-stack development, cloud technologies, modern frameworks, and programming languages.">
     <meta name="keywords"
-        content="hire Dhruv Tripathi, contact web developer, full-stack development services, React developer, Node.js expert, UI/UX consultation, developer availability, web project collaboration">
+        content="Dhruv Tripathi Skills, Full-Stack Developer Skills, ReactJS, JavaScript, Node.js, Cloud Computing, UI/UX Design, Software Engineering">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Dhruv Tripathi">
-    <link rel="canonical" href="https://dhruv-tripathi.dev/contact.html">
+    <link rel="canonical" href="https://dhruv-tripathi.dev/skill.html">
 
     <!-- Open Graph for Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Contact Dhruv Tripathi | Hire for Web Development">
+    <meta property="og:title" content="Dhruv Tripathi | Technical Skills & Expertise">
     <meta property="og:description"
-        content="Reach out to discuss your web development project needs. Available for freelance work, consultations, and collaborations.">
+        content="Comprehensive breakdown of my technical proficiencies across front-end, back-end, cloud technologies, and professional competencies.">
     <meta property="og:image" content="https://dhruv-tripathi.dev/web.png">
-    <meta property="og:url" content="https://dhruv-tripathi.dev/contact.html">
+    <meta property="og:url" content="https://dhruv-tripathi.dev/skill.html">
     <meta property="og:site_name" content="Dhruv Tripathi Portfolio">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:creator" content="@dhruv_codes">
-    <meta name="twitter:title" content="Contact Dhruv Tripathi | Hire for Web Development">
+    <meta name="twitter:title" content="Dhruv Tripathi | Technical Skills & Expertise">
     <meta name="twitter:description"
-        content="Let's discuss your web development project needs. Get in touch for freelance opportunities, consultations, and collaborations.">
+        content="Detailed breakdown of my technical proficiencies across web development, cloud solutions, programming languages, and professional competencies.">
     <meta name="twitter:image" content="https://dhruv-tripathi.dev/web.png">
+
     <link rel="shortcut icon" href="fav.webp" type="image/x-icon">
 
     <!-- Preload critical assets -->
@@ -37,6 +38,7 @@
     <noscript>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     </noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,6 +50,8 @@
     <!-- AOS CSS for scroll animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 
+    <!-- Chart.js for skill visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
     <style>
         /* General Styles */
         :root {
@@ -66,10 +70,6 @@
             --transition-speed: 0.3s;
             --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
             --gradient-secondary: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
-            --form-bg-dark: rgba(30, 41, 59, 0.8);
-            --form-bg-light: rgba(255, 255, 255, 0.9);
-            --form-border-dark: rgba(99, 102, 241, 0.3);
-            --form-border-light: rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -232,386 +232,32 @@
             background: var(--text-light);
         }
 
-        /* Contact Section */
-        .contact-section {
-            padding: 60px 20px 100px;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .section-header {
-            margin-bottom: 60px;
-        }
-
-        .section-header h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 20px;
+        /* Highlight and Common Styles */
+        .highlight {
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -0.5px;
-        }
-
-        .section-header p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto;
-            color: var(--text-muted-dark);
-            line-height: 1.7;
-        }
-
-        body.light-mode .section-header p {
-            color: var(--text-muted-light);
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 40px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        /* Contact Info */
-        .contact-info {
-            background: var(--card-dark);
-            border-radius: 16px;
-            padding: 40px 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            text-align: left;
-            transition: all var(--transition-speed) ease;
-            border: 1px solid rgba(99, 102, 241, 0.1);
-            height: fit-content;
-        }
-
-        body.light-mode .contact-info {
-            background: var(--card-light);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(99, 102, 241, 0.1);
-        }
-
-        .contact-info:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.2);
-        }
-
-        body.light-mode .contact-info:hover {
-            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.15);
-        }
-
-        .info-heading {
-            font-size: 1.6rem;
-            margin-bottom: 30px;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .info-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            background-image: var(--gradient-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            font-size: 20px;
-            color: white;
-            box-shadow: 0 8px 15px rgba(99, 102, 241, 0.3);
-            transition: transform var(--transition-speed);
-        }
-
-        .info-item:hover .info-icon {
-            transform: scale(1.15) rotate(5deg);
-        }
-
-        .info-details {
-            flex: 1;
-        }
-
-        .info-label {
-            font-size: 0.9rem;
-            color: var(--text-muted-dark);
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        body.light-mode .info-label {
-            color: var(--text-muted-light);
-        }
-
-        .info-value {
-            font-size: 1.05rem;
-            font-weight: 500;
-        }
-
-        .info-value a {
-            color: var(--text-dark);
-            text-decoration: none;
-            transition: color var(--transition-speed);
-        }
-
-        body.light-mode .info-value a {
-            color: var(--text-light);
-        }
-
-        .info-value a:hover {
-            color: var(--primary-color);
-            text-decoration: underline;
-        }
-
-        /* Social Links */
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 35px;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: var(--card-dark);
-            color: var(--text-dark);
-            font-size: 20px;
-            transition: all var(--transition-speed);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-        }
-
-        body.light-mode .social-links a {
-            background: var(--card-light);
-            color: var(--text-light);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .social-links a:hover {
-            transform: translateY(-5px);
-            color: white;
-        }
-
-        .social-links a[href*="github"]:hover {
-            background: #24292e;
-            box-shadow: 0 8px 20px rgba(36, 41, 46, 0.3);
-        }
-
-        .social-links a[href*="linkedin"]:hover {
-            background: #0077b5;
-            box-shadow: 0 8px 20px rgba(0, 119, 181, 0.3);
-        }
-
-        .social-links a[href*="twitter"]:hover,
-        .social-links a[href*="x.com"]:hover {
-            background: #1da1f2;
-            box-shadow: 0 8px 20px rgba(29, 161, 242, 0.3);
-        }
-
-        .social-links a[href*="instagram"]:hover {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            box-shadow: 0 8px 20px rgba(225, 48, 108, 0.3);
-        }
-
-        /* Contact Form */
-        .contact-form-container {
-            background: var(--card-dark);
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: all var(--transition-speed) ease;
-            border: 1px solid rgba(99, 102, 241, 0.1);
-        }
-
-        body.light-mode .contact-form-container {
-            background: var(--card-light);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(99, 102, 241, 0.1);
-        }
-
-        .contact-form-container:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.2);
-        }
-
-        body.light-mode .contact-form-container:hover {
-            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.15);
-        }
-
-        .form-heading {
-            font-size: 1.6rem;
-            margin-bottom: 30px;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-            text-align: left;
-        }
-
-        .contact-form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .form-group {
             position: relative;
+            display: inline-block;
         }
 
-        .form-group.full-width {
-            grid-column: span 2;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 16px 20px;
-            border: 2px solid var(--form-border-dark);
-            border-radius: 12px;
-            background: rgba(15, 23, 42, 0.3);
-            color: var(--text-dark);
-            font-size: 16px;
-            transition: all var(--transition-speed);
-        }
-
-        body.light-mode .form-control {
-            background: rgba(255, 255, 255, 0.8);
-            color: var(--text-light);
-            border: 2px solid var(--form-border-light);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
-            transform: translateY(-3px);
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .form-label {
-            position: absolute;
-            left: 20px;
-            top: 16px;
-            color: var(--text-muted-dark);
-            font-size: 16px;
-            transition: all var(--transition-speed);
-            pointer-events: none;
-            background: transparent;
-            padding: 0 5px;
-        }
-
-        body.light-mode .form-label {
-            color: var(--text-muted-light);
-        }
-
-        .form-control:focus+.form-label,
-        .form-control:not(:placeholder-shown)+.form-label {
-            transform: translateY(-26px) translateX(-10px) scale(0.85);
-            color: var(--primary-color);
-            background: var(--card-dark);
-            padding: 0 10px;
-            font-weight: 500;
-        }
-
-        body.light-mode .form-control:focus+.form-label,
-        body.light-mode .form-control:not(:placeholder-shown)+.form-label {
-            background: var(--card-light);
-        }
-
-        .submit-btn {
-            grid-column: span 2;
-            padding: 16px;
-            background-image: var(--gradient-primary);
-            border: none;
-            border-radius: 12px;
-            color: white;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all var(--transition-speed);
-            margin-top: 10px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .submit-btn::before {
+        .highlight::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
+            bottom: 5px;
+            left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.8s;
+            height: 8px;
+            background: var(--gradient-primary);
+            opacity: 0.2;
+            z-index: -1;
+            border-radius: 4px;
         }
 
-        .submit-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 25px rgba(99, 102, 241, 0.4);
-            background-image: var(--gradient-secondary);
-        }
-
-        .submit-btn:hover::before {
-            left: 100%;
-        }
-
-        .ml-2 {
-            margin-left: 8px;
-        }
-
-        /* Status message styling */
-        .status-message {
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 12px;
-            grid-column: span 2;
-            display: none;
-            animation: fadeIn 0.5s ease-in-out;
-            text-align: left;
-            font-weight: 500;
-        }
-
-        .status-success {
-            background-color: rgba(16, 185, 129, 0.1);
-            border: 1px solid #10b981;
-            color: #10b981;
-        }
-
-        .status-error {
-            background-color: rgba(239, 68, 68, 0.1);
-            border: 1px solid #ef4444;
-            color: #ef4444;
-        }
-
-        /* Background Shapes */
+        /* Floating Shapes */
         .shapes {
-            position: fixed;
+            position: absolute;
             width: 100%;
             height: 100%;
             top: 0;
@@ -685,6 +331,257 @@
             }
         }
 
+        /* Skills Container Styles */
+        .skills-container {
+            padding: 40px 20px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skills-container h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 46px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        .skill-description {
+            max-width: 800px;
+            margin: 30px auto;
+            text-align: center;
+            color: var(--text-muted-dark);
+            line-height: 1.6;
+            padding: 0 20px;
+            font-size: 18px;
+        }
+
+        body.light-mode .skill-description {
+            color: var(--text-muted-light);
+        }
+
+        /* Skill Tags */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .skill-tag {
+            background-color: rgba(99, 102, 241, 0.1);
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            transition: all var(--transition-speed) ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-mode .skill-tag {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(99, 102, 241, 0.15);
+        }
+
+        .skill-tag i {
+            margin-right: 8px;
+        }
+
+        /* Skill Category Tabs */
+        .skill-tabs {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill-tab {
+            background: var(--card-dark);
+            border: none;
+            color: var(--text-dark);
+            font-size: 16px;
+            font-weight: 500;
+            padding: 12px 24px;
+            cursor: pointer;
+            position: relative;
+            transition: all var(--transition-speed) ease;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .skill-tab {
+            background: var(--card-light);
+            color: var(--text-light);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-tab:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(99, 102, 241, 0.15);
+        }
+
+        .skill-tab.active {
+            background: var(--gradient-primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Skill Card Grid */
+        .skill-category {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .skill-category.active {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skill-card {
+            background: var(--card-dark);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        body.light-mode .skill-card {
+            background: var(--card-light);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.1);
+            padding: 15px;
+            border-radius: 50%;
+            line-height: 1;
+        }
+
+        body.light-mode .skill-icon {
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        .skill-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        body.light-mode .skill-name {
+            color: var(--text-light);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            margin: 15px 0 10px;
+        }
+
+        body.light-mode .progress-bar {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            transition: width 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .skill-percentage {
+            font-size: 16px;
+            margin-top: 8px;
+            text-align: right;
+            color: var(--text-muted-dark);
+            font-weight: 500;
+        }
+
+        body.light-mode .skill-percentage {
+            color: var(--text-muted-light);
+        }
+
+        /* Charts Section */
+        .charts-section {
+            margin-top: 80px;
+            padding: 20px;
+        }
+
+        .charts-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            letter-spacing: -0.5px;
+        }
+
+        .charts-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin-top: 40px;
+        }
+
+        .chart-wrapper {
+            width: 280px;
+            height: 280px;
+            position: relative;
+            transition: transform var(--transition-speed) ease;
+            background: var(--card-dark);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        body.light-mode .chart-wrapper {
+            background: var(--card-light);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .chart-wrapper:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+        }
+
         /* Footer */
         .footer {
             padding: 30px;
@@ -693,8 +590,6 @@
             background-color: rgba(15, 23, 42, 0.95);
             transition: background-color var(--transition-speed) ease-in-out;
             box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 1;
         }
 
         body.light-mode .footer {
@@ -703,57 +598,23 @@
             box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes floatAnimation {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .float {
-            animation: floatAnimation 4s ease-in-out infinite;
-        }
-
-        /* Hidden class for honeypot */
-        .hidden {
-            display: none;
-        }
-
         /* Responsive Design */
         @media (max-width: 1024px) {
-            .contact-container {
-                grid-template-columns: 1fr 1.5fr;
+            .skills-container h1 {
+                font-size: 38px;
             }
 
-            .section-header h1 {
-                font-size: 2.5rem;
+            .skill-description {
+                font-size: 16px;
             }
 
-            .social-links {
-                gap: 10px;
+            .skill-category.active {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
 
-            .contact-form-container,
-            .contact-info {
-                padding: 30px;
+            .chart-wrapper {
+                width: 250px;
+                height: 250px;
             }
         }
 
@@ -814,84 +675,79 @@
                 transform: rotate(45deg) translate(-5px, -6px);
             }
 
-            .section-header h1 {
-                font-size: 2.2rem;
+            .skills-container h1 {
+                font-size: 32px;
             }
 
-            .contact-container {
-                grid-template-columns: 1fr;
+            .skill-description {
+                font-size: 15px;
+            }
+
+            .skill-category.active {
+                grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+                gap: 20px;
+            }
+
+            .skill-tabs {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .skill-tab {
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+
+            .chart-wrapper {
+                width: 220px;
+                height: 220px;
+            }
+
+            .charts-section h2 {
+                font-size: 28px;
+            }
+
+            .charts-container {
                 gap: 30px;
-            }
-
-            .contact-form {
-                grid-template-columns: 1fr;
-            }
-
-            .form-group.full-width {
-                grid-column: span 1;
-            }
-
-            .submit-btn {
-                grid-column: span 1;
-            }
-
-            .status-message {
-                grid-column: span 1;
             }
         }
 
         @media (max-width: 480px) {
-            body {
-                padding-top: 60px;
+            .skills-container h1 {
+                font-size: 28px;
             }
 
-            .section-header h1 {
-                font-size: 1.8rem;
+            .skill-description {
+                font-size: 14px;
+                padding: 0 10px;
             }
 
-            .section-header p {
-                font-size: 0.95rem;
+            .skill-tab {
+                padding: 8px 16px;
+                font-size: 13px;
             }
 
-            .contact-form-container,
-            .contact-info {
-                padding: 25px 20px;
-                border-radius: 12px;
+            .skill-name {
+                font-size: 18px;
             }
 
-            .info-heading,
-            .form-heading {
-                font-size: 1.4rem;
+            .skill-card {
+                padding: 20px;
             }
 
-            .info-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
+            .chart-wrapper {
+                width: 100%;
+                height: 200px;
+                max-width: 280px;
             }
 
-            .form-control {
-                padding: 14px 16px;
+            .charts-section h2 {
+                font-size: 24px;
             }
 
-            .form-label {
-                left: 16px;
-                top: 14px;
-            }
-
-            .info-value {
-                font-size: 0.95rem;
-            }
-
-            .submit-btn {
-                font-size: 16px;
-                padding: 14px;
-            }
-
-            .social-links a {
-                width: 38px;
-                height: 38px;
-                font-size: 16px;
+            .skill-tag {
+                font-size: 14px;
+                padding: 6px 12px;
             }
         }
     </style>
@@ -921,228 +777,363 @@
         </div>
     </nav>
 
-    <section class="contact-section">
-        <div class="section-header" data-aos="fade-down" data-aos-duration="1000">
-            <h1>Get In Touch</h1>
-            <p>Have a project in mind or want to collaborate? Feel free to reach out through the form below or contact
-                me directly.</p>
+    <section class="skills-container">
+        <!-- Background Shapes -->
+        <div class="shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
         </div>
 
-        <div class="contact-container">
-            <!-- Contact Information -->
-            <div class="contact-info" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
-                <h3 class="info-heading">Contact Information</h3>
+        <h1 data-aos="fade-down" data-aos-duration="1000">Technical <span class="highlight">Skills</span></h1>
 
-                <div class="info-item">
-                    <div class="info-icon float">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="info-details">
-                        <div class="info-label">Email</div>
-                        <div class="info-value">
-                            <a href="mailto:hello@dhruv-tripathi.dev">dhruvtripathi2018@gmail.com</a>
-                        </div>
-                    </div>
-                </div>
+        <div class="skill-description" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <p>I am a passionate Full-Stack Developer with expertise in modern web technologies and cloud solutions. My
+                technical proficiency spans across front-end and back-end development, with a focus on creating
+                scalable, efficient, and elegant applications. Below is a comprehensive overview of my technical
+                capabilities and professional competencies.</p>
+        </div>
 
-                <div class="info-item">
-                    <div class="info-icon float">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="info-details">
-                        <div class="info-label">Phone</div>
-                        <div class="info-value">
-                            <a href="tel:+919876543210">+91 9876543210</a>
-                        </div>
-                    </div>
-                </div>
+        <div class="skill-tags" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+            <div class="skill-tag"><i class="fas fa-code"></i>Frontend Development</div>
+            <div class="skill-tag"><i class="fas fa-server"></i>Backend Technologies</div>
+            <div class="skill-tag"><i class="fas fa-palette"></i>UI/UX Design</div>
+        </div>
 
-                <div class="info-item">
-                    <div class="info-icon float">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="info-details">
-                        <div class="info-label">Location</div>
-                        <div class="info-value">Bangalore, India</div>
-                    </div>
-                </div>
+        <!-- Skill Category Tabs -->
+        <div class="skill-tabs" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+            <button class="skill-tab active" data-category="frontend">Frontend</button>
+            <button class="skill-tab" data-category="backend">Backend</button>
+            <button class="skill-tab" data-category="database">Database</button>
+            <button class="skill-tab" data-category="tools">Tools & DevOps</button>
+        </div>
 
-                <div class="social-links">
-                    <a href="https://github.com/dhruv-tripathi" target="_blank" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/dhruv-tripathi" target="_blank" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://x.com/dhruv_codes" target="_blank" aria-label="Twitter">
-                        <i class="fa-brands fa-x-twitter"></i>
-                    </a>
-                    <a href="https://instagram.com/dhruv.codes" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+        <!-- Frontend Skills -->
+        <div class="skill-category active" id="frontend" data-aos="fade-up" data-aos-duration="1000"
+            data-aos-delay="500">
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-javascript-plain"></i></div>
+                <div class="skill-name">JavaScript</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="90"></div>
                 </div>
+                <div class="skill-percentage">90%</div>
             </div>
 
-            <!-- Contact Form -->
-            <div class="contact-form-container" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
-                <h3 class="form-heading">Send a Message</h3>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-typescript-plain"></i></div>
+                <div class="skill-name">TypeScript</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="85"></div>
+                </div>
+                <div class="skill-percentage">85%</div>
+            </div>
 
-                <!-- Status message div for displaying form submission results -->
-                <div id="status-message" class="status-message"></div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-tailwindcss-plain"></i></div>
+                <div class="skill-name">Tailwind CSS</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="92"></div>
+                </div>
+                <div class="skill-percentage">92%</div>
+            </div>
 
-                <!-- Static version of the form that appears for non-JS browsers and Netlify form crawler -->
-                <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-                    <input type="text" name="name" />
-                    <input type="email" name="email" />
-                    <input type="text" name="subject" />
-                    <textarea name="message"></textarea>
-                </form>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-html5-plain"></i></div>
+                <div class="skill-name">HTML5</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="95"></div>
+                </div>
+                <div class="skill-percentage">95%</div>
+            </div>
 
-                <!-- Actual form shown to users -->
-                <form id="contact-form" class="contact-form" method="POST" data-netlify="true" name="contact">
-                    <input type="hidden" name="form-name" value="contact" />
-                    <!-- Honeypot field to prevent spam -->
-                    <p class="hidden" style="display:none;">
-                        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-                    </p>
-
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" class="form-control" placeholder=" " required>
-                        <label for="name" class="form-label">Your Name</label>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" class="form-control" placeholder=" " required>
-                        <label for="email" class="form-label">Your Email</label>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <input type="text" id="subject" name="subject" class="form-control" placeholder=" " required>
-                        <label for="subject" class="form-label">Subject</label>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <textarea id="message" name="message" class="form-control" placeholder=" " rows="4"
-                            required></textarea>
-                        <label for="message" class="form-label">Your Message</label>
-                    </div>
-
-                    <button type="submit" class="submit-btn">
-                        <span>Send Message</span>
-                        <i class="fas fa-paper-plane ml-2"></i>
-                    </button>
-                </form>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-css3-plain"></i></div>
+                <div class="skill-name">CSS3</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="90"></div>
+                </div>
+                <div class="skill-percentage">90%</div>
             </div>
         </div>
-    </section>
 
-    <!-- Background Shapes -->
-    <div class="shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-    </div>
+        <!-- Backend Skills -->
+        <div class="skill-category" id="backend">
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-express-original"></i></div>
+                <div class="skill-name">Express.js</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="92"></div>
+                </div>
+                <div class="skill-percentage">92%</div>
+            </div>
 
-    <footer class="footer">
-        © 2025 Dhruv Tripathi. All Rights Reserved.
-    </footer>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-python-plain"></i></div>
+                <div class="skill-name">Python</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="80"></div>
+                </div>
+                <div class="skill-percentage">80%</div>
+            </div>
 
-    <!-- Scripts with defer to improve loading performance -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Initialize AOS
-            AOS.init({
-                once: true,
-                disable: 'mobile'
-            });
 
-            // Check for saved theme preference
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            const themeToggle = document.getElementById('theme-toggle');
-            const themeIcon = themeToggle.querySelector('i');
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-java-plain"></i></div>
+                <div class="skill-name">Java</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="70"></div>
+                </div>
+                <div class="skill-percentage">70%</div>
+            </div>
+        </div>
 
-            // Apply saved theme
-            if (savedTheme === 'light') {
-                document.body.classList.add('light-mode');
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-            }
+        <!-- Database Skills -->
+        <div class="skill-category" id="database">
 
-            // Theme toggle functionality
-            themeToggle.addEventListener('click', function () {
-                document.body.classList.toggle('light-mode');
-                const isDark = !document.body.classList.contains('light-mode');
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-mysql-plain"></i></div>
+                <div class="skill-name">MySQL</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="80"></div>
+                </div>
+                <div class="skill-percentage">80%</div>
+            </div>
+        </div>
 
-                // Save preference
-                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        <!-- Tools & DevOps Skills -->
+        <div class="skill-category" id="tools">
 
-                // Change icon
-                if (isDark) {
-                    themeIcon.classList.replace('fa-sun', 'fa-moon');
-                } else {
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-git-plain"></i></div>
+                <div class="skill-name">Git</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="95"></div>
+                </div>
+                <div class="skill-percentage">95%</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-github-plain"></i></div>
+                <div class="skill-name">GitHub Actions</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="85"></div>
+                </div>
+                <div class="skill-percentage">85%</div>
+            </div>
+        </div>
+
+        <!-- Professional Skills Section -->
+        <div class="charts-section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+            <h2>Professional Skills</h2>
+            <div class="charts-container">
+                <div class="chart-wrapper">
+                    <canvas id="problem-solving-chart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="communication-chart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="teamwork-chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            © 2025 Dhruv Tripathi. All Rights Reserved.
+        </footer>
+
+        <!-- Scripts with defer to improve loading performance -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+        <script>document.addEventListener("DOMContentLoaded", function () {
+                // Initialize AOS
+                AOS.init({
+                    once: true,
+                    disable: 'mobile'
+                });
+
+                // Check for saved theme preference
+                const savedTheme = localStorage.getItem('theme') || 'dark';
+                const themeToggle = document.getElementById('theme-toggle');
+                const themeIcon = themeToggle.querySelector('i');
+
+                // Apply saved theme
+                if (savedTheme === 'light') {
+                    document.body.classList.add('light-mode');
                     themeIcon.classList.replace('fa-moon', 'fa-sun');
                 }
-            });
 
-            // Mobile Menu Toggle
-            const mobileMenu = document.getElementById("mobile-menu");
-            const navLinks = document.getElementById("nav-links");
+                // Theme toggle functionality
+                themeToggle.addEventListener('click', function () {
+                    document.body.classList.toggle('light-mode');
+                    const isDark = !document.body.classList.contains('light-mode');
 
-            mobileMenu.addEventListener("click", () => {
-                navLinks.classList.toggle("active");
-                mobileMenu.classList.toggle("active");
-            });
+                    // Save preference
+                    localStorage.setItem('theme', isDark ? 'dark' : 'light');
 
-            // Form submission handling
-            const form = document.getElementById('contact-form');
-            const statusMessage = document.getElementById('status-message');
+                    // Change icon
+                    if (isDark) {
+                        themeIcon.classList.replace('fa-sun', 'fa-moon');
+                    } else {
+                        themeIcon.classList.replace('fa-moon', 'fa-sun');
+                    }
 
-            form.addEventListener('submit', function (e) {
-                // Don't prevent default form submission
-                // This allows Netlify to handle the form naturally
+                    // Update charts
+                    updateCharts();
+                });
 
-                // Let's show a sending message
-                showStatus('Sending your message...', true);
-            });
+                // Mobile Menu Toggle
+                const mobileMenu = document.getElementById("mobile-menu");
+                const navLinks = document.getElementById("nav-links");
 
-            // Display feedback to user when form redirects back
-            // Check for URL parameters that Netlify adds after form submission
-            function checkFormSubmission() {
-                const urlParams = new URLSearchParams(window.location.search);
-                if (urlParams.has('form-submission')) {
-                    showStatus('Message sent successfully! I will get back to you soon.', true);
-                    // Clear URL parameters without refreshing the page
-                    history.replaceState({}, document.title, window.location.pathname);
+                mobileMenu.addEventListener("click", () => {
+                    navLinks.classList.toggle("active");
+                    mobileMenu.classList.toggle("active");
+                });
+
+                // Skill Category Tabs
+                const skillTabs = document.querySelectorAll('.skill-tab');
+                const skillCategories = document.querySelectorAll('.skill-category');
+
+                skillTabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        // Remove active class from all tabs
+                        skillTabs.forEach(t => t.classList.remove('active'));
+                        // Add active class to clicked tab
+                        tab.classList.add('active');
+
+                        // Hide all skill categories
+                        skillCategories.forEach(category => {
+                            category.classList.remove('active');
+                        });
+
+                        // Show the selected category
+                        const categoryId = tab.getAttribute('data-category');
+                        document.getElementById(categoryId).classList.add('active');
+                    });
+                });
+
+                // GSAP Animations
+                gsap.from("nav", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
+
+                // Animate progress bars when they come into view
+                const animateProgressBars = () => {
+                    document.querySelectorAll('.progress-bar-fill').forEach(bar => {
+                        const progress = bar.getAttribute('data-progress');
+                        bar.style.width = progress + '%';
+                    });
+                };
+
+                // Initialize with a small delay to ensure proper animation
+                setTimeout(animateProgressBars, 500);
+
+                // Initialize Charts
+                let communicationChart, teamworkChart, problemSolvingChart;
+
+                const createChart = (id, label, data, color) => {
+                    // Determine text color based on current theme
+                    const isDarkMode = !document.body.classList.contains('light-mode');
+                    const textColor = isDarkMode ? '#f8fafc' : '#0f172a';
+
+                    return new Chart(document.getElementById(id), {
+                        type: "doughnut",
+                        data: {
+                            labels: [label, ""],
+                            datasets: [{
+                                data: [data, 100 - data],
+                                backgroundColor: [color, isDarkMode ? '#333' : '#eee'],
+                                borderWidth: 0
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            cutout: '75%',
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                    position: 'bottom',
+                                    labels: {
+                                        color: textColor,
+                                        font: {
+                                            size: 14,
+                                            family: "'Poppins', sans-serif"
+                                        }
+                                    }
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function (context) {
+                                            return context.raw + '%';
+                                        }
+                                    },
+                                    titleColor: textColor,
+                                    bodyColor: textColor,
+                                    backgroundColor: isDarkMode ? 'rgba(15, 23, 42, 0.8)' : 'rgba(248, 250, 252, 0.8)',
+                                    borderColor: isDarkMode ? '#1e293b' : '#e2e8f0',
+                                    borderWidth: 1
+                                }
+                            }
+                        }
+                    });
+                };
+
+                function initCharts() {
+                    communicationChart = createChart("communication-chart", "Communication", 85, '#ff5733');
+                    teamworkChart = createChart("teamwork-chart", "Teamwork", 90, '#007bff');
+                    problemSolvingChart = createChart("problem-solving-chart", "Problem Solving", 88, '#28a745');
                 }
-            }
 
-            // Status message function
-            function showStatus(message, isSuccess) {
-                statusMessage.textContent = message;
-                statusMessage.style.display = 'block';
+                // Initialize charts
+                initCharts();
 
-                if (isSuccess) {
-                    statusMessage.className = 'status-message status-success';
-                } else {
-                    statusMessage.className = 'status-message status-error';
+                // Function to update charts when theme changes
+                function updateCharts() {
+                    // Destroy old charts
+                    communicationChart.destroy();
+                    teamworkChart.destroy();
+                    problemSolvingChart.destroy();
+
+                    // Re-initialize with correct colors
+                    initCharts();
                 }
 
-                // Hide success message after 5 seconds
-                if (isSuccess) {
-                    setTimeout(() => {
-                        statusMessage.style.display = 'none';
-                    }, 5000);
-                }
-            }
+                // Handle visibility changes for proper animations
+                document.addEventListener('visibilitychange', function () {
+                    if (document.visibilityState === 'visible') {
+                        // Re-initialize AOS animations when tab becomes visible again
+                        AOS.refresh();
 
-            // Check for form submission on page load
-            checkFormSubmission();
+                        // Re-animate progress bars
+                        animateProgressBars();
+                    }
+                });
 
-            // GSAP Animations
-            gsap.from("nav", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
-        });
-    </script>
+                // Add scroll trigger for progress bars
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateProgressBars();
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                // Observe the skill categories
+                document.querySelectorAll('.skill-category').forEach(category => {
+                    observer.observe(category);
+                });
+
+                // Lazy load images
+                const lazyImages = document.querySelectorAll('img[data-src]');
+                lazyImages.forEach(img => {
+                    img.src = img.dataset.src;
+                    img.onload = () => {
+                        img.removeAttribute('data-src');
+                    };
+                });
+            });</script>
 </body>
 
 </html>

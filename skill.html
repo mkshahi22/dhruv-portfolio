@@ -1,46 +1,1139 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skill</title>
+    <title>Dhruv Tripathi | Technical Skills</title>
+    <meta name="description"
+        content="Explore Dhruv Tripathi's comprehensive technical skills in full-stack development, cloud technologies, modern frameworks, and programming languages.">
+    <meta name="keywords"
+        content="Dhruv Tripathi Skills, Full-Stack Developer Skills, ReactJS, JavaScript, Node.js, Cloud Computing, UI/UX Design, Software Engineering">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Dhruv Tripathi">
+    <link rel="canonical" href="https://dhruv-tripathi.dev/skill.html">
+
+    <!-- Open Graph for Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dhruv Tripathi | Technical Skills & Expertise">
+    <meta property="og:description"
+        content="Comprehensive breakdown of my technical proficiencies across front-end, back-end, cloud technologies, and professional competencies.">
+    <meta property="og:image" content="https://dhruv-tripathi.dev/web.png">
+    <meta property="og:url" content="https://dhruv-tripathi.dev/skill.html">
+    <meta property="og:site_name" content="Dhruv Tripathi Portfolio">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@dhruv_codes">
+    <meta name="twitter:title" content="Dhruv Tripathi | Technical Skills & Expertise">
+    <meta name="twitter:description"
+        content="Detailed breakdown of my technical proficiencies across web development, cloud solutions, programming languages, and professional competencies.">
+    <meta name="twitter:image" content="https://dhruv-tripathi.dev/web.png">
+
+    <link rel="shortcut icon" href="fav.webp" type="image/x-icon">
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    </noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS CSS for scroll animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+    <!-- Chart.js for skill visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
     <style>
+        /* General Styles */
+        :root {
+            --primary-color: #6366f1;
+            --primary-hover: #4f46e5;
+            --secondary-color: #10b981;
+            --accent-color: #f59e0b;
+            --background-dark: #0f172a;
+            --card-dark: #1e293b;
+            --text-dark: #f8fafc;
+            --text-muted-dark: #94a3b8;
+            --background-light: #f8fafc;
+            --card-light: #ffffff;
+            --text-light: #0f172a;
+            --text-muted-light: #64748b;
+            --transition-speed: 0.3s;
+            --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            --gradient-secondary: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
+            background: var(--background-dark);
+            color: var(--text-dark);
             text-align: center;
-            padding: 50px;
+            padding-top: 80px;
+            transition: background-color var(--transition-speed) ease-in-out,
+                color var(--transition-speed) ease-in-out;
+            line-height: 1.6;
         }
 
-        h2 {
-            background-color: #ffeb3b;
-            padding: 20px;
-            border-radius: 10px;
-            color: #000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            font-size: 24px;
-            max-width: 600px;
-            margin: 0 auto;
+        body.light-mode {
+            background: var(--background-light);
+            color: var(--text-light);
         }
 
-        button {
-            background-color: #2015fa;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: all var(--transition-speed) ease-in-out;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode nav {
+            background: rgba(248, 250, 252, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        nav h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--text-dark);
             font-size: 16px;
-            margin-top: 20px;
+            font-weight: 500;
+            padding: 5px 10px;
+            transition: all var(--transition-speed) ease-in-out;
+            position: relative;
+            letter-spacing: 0.3px;
+        }
+
+        body.light-mode .nav-links li a {
+            color: var(--text-light);
+        }
+
+        /* Hover Effect */
+        .nav-links li a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform var(--transition-speed) ease-in-out;
+        }
+
+        .nav-links li a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .nav-links li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--text-dark);
+            font-size: 22px;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: all var(--transition-speed) ease-in-out;
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+        }
+
+        body.light-mode .theme-toggle {
+            color: var(--text-light);
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            background: var(--text-dark);
+            height: 3px;
+            width: 28px;
+            margin: 4px 0;
+            border-radius: 3px;
+            transition: 0.4s;
+        }
+
+        body.light-mode .bar {
+            background: var(--text-light);
+        }
+
+        /* Highlight and Common Styles */
+        .highlight {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--gradient-primary);
+            opacity: 0.2;
+            z-index: -1;
+            border-radius: 4px;
+        }
+
+        /* Floating Shapes */
+        .shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: rgba(99, 102, 241, 0.3);
+            top: 20%;
+            left: 15%;
+            animation: float1 20s infinite alternate;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: rgba(16, 185, 129, 0.3);
+            bottom: 10%;
+            right: 10%;
+            animation: float2 15s infinite alternate;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            background: rgba(245, 158, 11, 0.3);
+            top: 70%;
+            left: 20%;
+            animation: float3 18s infinite alternate;
+        }
+
+        @keyframes float1 {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(40px, 40px) scale(1.1);
+            }
+        }
+
+        @keyframes float2 {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(-40px, 20px) scale(1.15);
+            }
+        }
+
+        @keyframes float3 {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(30px, -30px) scale(1.05);
+            }
+        }
+
+        /* Skills Container Styles */
+        .skills-container {
+            padding: 40px 20px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skills-container h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 46px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        .skill-description {
+            max-width: 800px;
+            margin: 30px auto;
+            text-align: center;
+            color: var(--text-muted-dark);
+            line-height: 1.6;
+            padding: 0 20px;
+            font-size: 18px;
+        }
+
+        body.light-mode .skill-description {
+            color: var(--text-muted-light);
+        }
+
+        /* Skill Tags */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .skill-tag {
+            background-color: rgba(99, 102, 241, 0.1);
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            transition: all var(--transition-speed) ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-mode .skill-tag {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(99, 102, 241, 0.15);
+        }
+
+        .skill-tag i {
+            margin-right: 8px;
+        }
+
+        /* Skill Category Tabs */
+        .skill-tabs {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill-tab {
+            background: var(--card-dark);
+            border: none;
+            color: var(--text-dark);
+            font-size: 16px;
+            font-weight: 500;
+            padding: 12px 24px;
+            cursor: pointer;
+            position: relative;
+            transition: all var(--transition-speed) ease;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .skill-tab {
+            background: var(--card-light);
+            color: var(--text-light);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-tab:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(99, 102, 241, 0.15);
+        }
+
+        .skill-tab.active {
+            background: var(--gradient-primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Skill Card Grid */
+        .skill-category {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .skill-category.active {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skill-card {
+            background: var(--card-dark);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        body.light-mode .skill-card {
+            background: var(--card-light);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.1);
+            padding: 15px;
+            border-radius: 50%;
+            line-height: 1;
+        }
+
+        body.light-mode .skill-icon {
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        .skill-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        body.light-mode .skill-name {
+            color: var(--text-light);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            margin: 15px 0 10px;
+        }
+
+        body.light-mode .progress-bar {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            transition: width 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .skill-percentage {
+            font-size: 16px;
+            margin-top: 8px;
+            text-align: right;
+            color: var(--text-muted-dark);
+            font-weight: 500;
+        }
+
+        body.light-mode .skill-percentage {
+            color: var(--text-muted-light);
+        }
+
+        /* Charts Section */
+        .charts-section {
+            margin-top: 80px;
+            padding: 20px;
+        }
+
+        .charts-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            letter-spacing: -0.5px;
+        }
+
+        .charts-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin-top: 40px;
+        }
+
+        .chart-wrapper {
+            width: 280px;
+            height: 280px;
+            position: relative;
+            transition: transform var(--transition-speed) ease;
+            background: var(--card-dark);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        body.light-mode .chart-wrapper {
+            background: var(--card-light);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .chart-wrapper:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 30px;
+            text-align: center;
+            font-size: 15px;
+            background-color: rgba(15, 23, 42, 0.95);
+            transition: background-color var(--transition-speed) ease-in-out;
+            box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .footer {
+            background-color: rgba(248, 250, 252, 0.95);
+            color: var(--text-light);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .skills-container h1 {
+                font-size: 38px;
+            }
+
+            .skill-description {
+                font-size: 16px;
+            }
+
+            .skill-category.active {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .chart-wrapper {
+                width: 250px;
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+
+            nav {
+                padding: 20px;
+            }
+
+            nav h2 {
+                font-size: 24px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                width: 60%;
+                background: rgba(15, 23, 42, 0.95);
+                backdrop-filter: blur(10px);
+                text-align: right;
+                padding: 20px;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            }
+
+            body.light-mode .nav-links {
+                background: rgba(248, 250, 252, 0.95);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 15px 10px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu-toggle.active .bar:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .menu-toggle.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active .bar:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .skills-container h1 {
+                font-size: 32px;
+            }
+
+            .skill-description {
+                font-size: 15px;
+            }
+
+            .skill-category.active {
+                grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+                gap: 20px;
+            }
+
+            .skill-tabs {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .skill-tab {
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+
+            .chart-wrapper {
+                width: 220px;
+                height: 220px;
+            }
+
+            .charts-section h2 {
+                font-size: 28px;
+            }
+
+            .charts-container {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skills-container h1 {
+                font-size: 28px;
+            }
+
+            .skill-description {
+                font-size: 14px;
+                padding: 0 10px;
+            }
+
+            .skill-tab {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+
+            .skill-name {
+                font-size: 18px;
+            }
+
+            .skill-card {
+                padding: 20px;
+            }
+
+            .chart-wrapper {
+                width: 100%;
+                height: 200px;
+                max-width: 280px;
+            }
+
+            .charts-section h2 {
+                font-size: 24px;
+            }
+
+            .skill-tag {
+                font-size: 14px;
+                padding: 6px 12px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <h2>अभी Skill Page Development में है, बाद में आना।<br>तुझे बोला ना, बाद में आना। 🙅‍♂️</h2>
-    <a href="index.html"><button>Thik hai jata hu</button></a>
+    <nav>
+        <h2>Dhruv Tripathi</h2>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/education.html">Education</a></li>
+            <li><a href="/project.html">Projects</a></li>
+            <li><a href="/skill.html">Skills</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-container">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <!-- Responsive Menu Icon -->
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="skills-container">
+        <!-- Background Shapes -->
+        <div class="shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+
+        <h1 data-aos="fade-down" data-aos-duration="1000">Technical <span class="highlight">Skills</span></h1>
+
+        <div class="skill-description" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <p>I am a passionate Full-Stack Developer with expertise in modern web technologies and cloud solutions. My
+                technical proficiency spans across front-end and back-end development, with a focus on creating
+                scalable, efficient, and elegant applications. Below is a comprehensive overview of my technical
+                capabilities and professional competencies.</p>
+        </div>
+
+        <div class="skill-tags" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+            <div class="skill-tag"><i class="fas fa-code"></i>Frontend Development</div>
+            <div class="skill-tag"><i class="fas fa-server"></i>Backend Technologies</div>
+            <div class="skill-tag"><i class="fas fa-palette"></i>UI/UX Design</div>
+        </div>
+
+        <!-- Skill Category Tabs -->
+        <div class="skill-tabs" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+            <button class="skill-tab active" data-category="frontend">Frontend</button>
+            <button class="skill-tab" data-category="backend">Backend</button>
+            <button class="skill-tab" data-category="database">Database</button>
+            <button class="skill-tab" data-category="tools">Tools & DevOps</button>
+        </div>
+
+        <!-- Frontend Skills -->
+        <div class="skill-category active" id="frontend" data-aos="fade-up" data-aos-duration="1000"
+            data-aos-delay="500">
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-javascript-plain"></i></div>
+                <div class="skill-name">JavaScript</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="90"></div>
+                </div>
+                <div class="skill-percentage">90%</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-typescript-plain"></i></div>
+                <div class="skill-name">TypeScript</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="85"></div>
+                </div>
+                <div class="skill-percentage">85%</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-tailwindcss-plain"></i></div>
+                <div class="skill-name">Tailwind CSS</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="92"></div>
+                </div>
+                <div class="skill-percentage">92%</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-html5-plain"></i></div>
+                <div class="skill-name">HTML5</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="95"></div>
+                </div>
+                <div class="skill-percentage">95%</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-css3-plain"></i></div>
+                <div class="skill-name">CSS3</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="90"></div>
+                </div>
+                <div class="skill-percentage">90%</div>
+            </div>
+        </div>
+
+        <!-- Backend Skills -->
+        <div class="skill-category" id="backend">
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-express-original"></i></div>
+                <div class="skill-name">Express.js</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="92"></div>
+                </div>
+                <div class="skill-percentage">92%</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-python-plain"></i></div>
+                <div class="skill-name">Python</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="80"></div>
+                </div>
+                <div class="skill-percentage">80%</div>
+            </div>
+
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-java-plain"></i></div>
+                <div class="skill-name">Java</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="70"></div>
+                </div>
+                <div class="skill-percentage">70%</div>
+            </div>
+        </div>
+
+        <!-- Database Skills -->
+        <div class="skill-category" id="database">
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-mysql-plain"></i></div>
+                <div class="skill-name">MySQL</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="80"></div>
+                </div>
+                <div class="skill-percentage">80%</div>
+            </div>
+        </div>
+
+        <!-- Tools & DevOps Skills -->
+        <div class="skill-category" id="tools">
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-git-plain"></i></div>
+                <div class="skill-name">Git</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="95"></div>
+                </div>
+                <div class="skill-percentage">95%</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-github-plain"></i></div>
+                <div class="skill-name">GitHub Actions</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="85"></div>
+                </div>
+                <div class="skill-percentage">85%</div>
+            </div>
+        </div>
+
+        <!-- Professional Skills Section -->
+        <div class="charts-section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+            <h2>Professional Skills</h2>
+            <div class="charts-container">
+                <div class="chart-wrapper">
+                    <canvas id="problem-solving-chart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="communication-chart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="teamwork-chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            © 2025 Dhruv Tripathi. All Rights Reserved.
+        </footer>
+
+        <!-- Scripts with defer to improve loading performance -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+        <script>document.addEventListener("DOMContentLoaded", function () {
+                // Initialize AOS
+                AOS.init({
+                    once: true,
+                    disable: 'mobile'
+                });
+
+                // Check for saved theme preference
+                const savedTheme = localStorage.getItem('theme') || 'dark';
+                const themeToggle = document.getElementById('theme-toggle');
+                const themeIcon = themeToggle.querySelector('i');
+
+                // Apply saved theme
+                if (savedTheme === 'light') {
+                    document.body.classList.add('light-mode');
+                    themeIcon.classList.replace('fa-moon', 'fa-sun');
+                }
+
+                // Theme toggle functionality
+                themeToggle.addEventListener('click', function () {
+                    document.body.classList.toggle('light-mode');
+                    const isDark = !document.body.classList.contains('light-mode');
+
+                    // Save preference
+                    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+                    // Change icon
+                    if (isDark) {
+                        themeIcon.classList.replace('fa-sun', 'fa-moon');
+                    } else {
+                        themeIcon.classList.replace('fa-moon', 'fa-sun');
+                    }
+
+                    // Update charts
+                    updateCharts();
+                });
+
+                // Mobile Menu Toggle
+                const mobileMenu = document.getElementById("mobile-menu");
+                const navLinks = document.getElementById("nav-links");
+
+                mobileMenu.addEventListener("click", () => {
+                    navLinks.classList.toggle("active");
+                    mobileMenu.classList.toggle("active");
+                });
+
+                // Skill Category Tabs
+                const skillTabs = document.querySelectorAll('.skill-tab');
+                const skillCategories = document.querySelectorAll('.skill-category');
+
+                skillTabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        // Remove active class from all tabs
+                        skillTabs.forEach(t => t.classList.remove('active'));
+                        // Add active class to clicked tab
+                        tab.classList.add('active');
+
+                        // Hide all skill categories
+                        skillCategories.forEach(category => {
+                            category.classList.remove('active');
+                        });
+
+                        // Show the selected category
+                        const categoryId = tab.getAttribute('data-category');
+                        document.getElementById(categoryId).classList.add('active');
+                    });
+                });
+
+                // GSAP Animations
+                gsap.from("nav", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
+
+                // Animate progress bars when they come into view
+                const animateProgressBars = () => {
+                    document.querySelectorAll('.progress-bar-fill').forEach(bar => {
+                        const progress = bar.getAttribute('data-progress');
+                        bar.style.width = progress + '%';
+                    });
+                };
+
+                // Initialize with a small delay to ensure proper animation
+                setTimeout(animateProgressBars, 500);
+
+                // Initialize Charts
+                let communicationChart, teamworkChart, problemSolvingChart;
+
+                const createChart = (id, label, data, color) => {
+                    // Determine text color based on current theme
+                    const isDarkMode = !document.body.classList.contains('light-mode');
+                    const textColor = isDarkMode ? '#f8fafc' : '#0f172a';
+
+                    return new Chart(document.getElementById(id), {
+                        type: "doughnut",
+                        data: {
+                            labels: [label, ""],
+                            datasets: [{
+                                data: [data, 100 - data],
+                                backgroundColor: [color, isDarkMode ? '#333' : '#eee'],
+                                borderWidth: 0
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            cutout: '75%',
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                    position: 'bottom',
+                                    labels: {
+                                        color: textColor,
+                                        font: {
+                                            size: 14,
+                                            family: "'Poppins', sans-serif"
+                                        }
+                                    }
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function (context) {
+                                            return context.raw + '%';
+                                        }
+                                    },
+                                    titleColor: textColor,
+                                    bodyColor: textColor,
+                                    backgroundColor: isDarkMode ? 'rgba(15, 23, 42, 0.8)' : 'rgba(248, 250, 252, 0.8)',
+                                    borderColor: isDarkMode ? '#1e293b' : '#e2e8f0',
+                                    borderWidth: 1
+                                }
+                            }
+                        }
+                    });
+                };
+
+                function initCharts() {
+                    communicationChart = createChart("communication-chart", "Communication", 85, '#ff5733');
+                    teamworkChart = createChart("teamwork-chart", "Teamwork", 90, '#007bff');
+                    problemSolvingChart = createChart("problem-solving-chart", "Problem Solving", 88, '#28a745');
+                }
+
+                // Initialize charts
+                initCharts();
+
+                // Function to update charts when theme changes
+                function updateCharts() {
+                    // Destroy old charts
+                    communicationChart.destroy();
+                    teamworkChart.destroy();
+                    problemSolvingChart.destroy();
+
+                    // Re-initialize with correct colors
+                    initCharts();
+                }
+
+                // Handle visibility changes for proper animations
+                document.addEventListener('visibilitychange', function () {
+                    if (document.visibilityState === 'visible') {
+                        // Re-initialize AOS animations when tab becomes visible again
+                        AOS.refresh();
+
+                        // Re-animate progress bars
+                        animateProgressBars();
+                    }
+                });
+
+                // Add scroll trigger for progress bars
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateProgressBars();
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                // Observe the skill categories
+                document.querySelectorAll('.skill-category').forEach(category => {
+                    observer.observe(category);
+                });
+
+                // Lazy load images
+                const lazyImages = document.querySelectorAll('img[data-src]');
+                lazyImages.forEach(img => {
+                    img.src = img.dataset.src;
+                    img.onload = () => {
+                        img.removeAttribute('data-src');
+                    };
+                });
+            });</script>
 </body>
 
 </html>
