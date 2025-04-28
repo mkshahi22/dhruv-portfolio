@@ -755,7 +755,8 @@
             <div class="timeline-item" data-modal-id="diploma-modal" data-aos="fade-left" data-aos-duration="1000"
                 data-aos-delay="200">
                 <div class="timeline-content">
-                    <img src="" alt="IIT Logo" class="timeline-logo">
+                    <img src="https://mentoringindiaschools.com/assets/images/college/MIS-05122024001714images.jpg"
+                        alt="IIT Logo" class="timeline-logo">
                     <h3><i class="fas fa-university"></i> B.Tech in Computer Science</h3>
                     <p>Indian Institute of Technology | 2019 - 2023</p>
                     <div class="achievement">
@@ -821,252 +822,265 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // IMMEDIATE ACTIONS: Make cards visible immediately
-            const timelineItems = document.querySelectorAll('.timeline-item');
-
-            // Make sure cards are visible immediately - override any opacity/transform styles
-            timelineItems.forEach(item => {
-                item.style.opacity = "1";
-                item.style.transform = "none";
-                item.style.visibility = "visible";
+            // Initialize AOS
+            AOS.init({
+                once: true,
+                disable: 'mobile',
+                duration: 800
             });
 
-            // Apply saved theme immediately
+            // Check for saved theme preference
             const savedTheme = localStorage.getItem('theme') || 'dark';
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+
+            // Apply saved theme
             if (savedTheme === 'light') {
                 document.body.classList.add('light-mode');
-                const themeIcon = document.getElementById('theme-toggle')?.querySelector('i');
-                if (themeIcon) themeIcon.classList.replace('fa-moon', 'fa-sun');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
             }
 
-            // DEFERRED ACTIONS: Initialize everything else after cards are visible
-            setTimeout(() => {
-                // Initialize AOS with minimal settings
-                if (typeof AOS !== 'undefined') {
-                    AOS.init({
-                        once: true,
-                        disable: 'mobile',
-                        duration: 600,
-                        startEvent: 'load', // Only start after full page load
-                        disableMutationObserver: true // Disable for better performance
-                    });
+            // Theme toggle functionality
+            themeToggle.addEventListener('click', function () {
+                document.body.classList.toggle('light-mode');
+                const isDark = !document.body.classList.contains('light-mode');
+
+                // Save preference
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+                // Change icon
+                if (isDark) {
+                    themeIcon.classList.replace('fa-sun', 'fa-moon');
+                } else {
+                    themeIcon.classList.replace('fa-moon', 'fa-sun');
                 }
+            });
 
-                // Theme toggle functionality
-                const themeToggle = document.getElementById('theme-toggle');
-                if (themeToggle) {
-                    const themeIcon = themeToggle.querySelector('i');
-                    themeToggle.addEventListener('click', function () {
-                        document.body.classList.toggle('light-mode');
-                        const isDark = !document.body.classList.contains('light-mode');
-                        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            // Mobile Menu Toggle
+            const mobileMenu = document.getElementById("mobile-menu");
+            const navLinks = document.getElementById("nav-links");
 
-                        if (isDark && themeIcon) {
-                            themeIcon.classList.replace('fa-sun', 'fa-moon');
-                        } else if (themeIcon) {
-                            themeIcon.classList.replace('fa-moon', 'fa-sun');
-                        }
-                    });
-                }
+            mobileMenu.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+                mobileMenu.classList.toggle("active");
+            });
 
-                // Mobile Menu Toggle
-                const mobileMenu = document.getElementById("mobile-menu");
-                const navLinks = document.getElementById("nav-links");
+            // Modal Logic
+            const modal = document.getElementById('modal-container');
+            const modalText = document.getElementById('modal-text');
+            const modalClose = document.querySelector('.modal-close');
+            const modalContent = document.querySelector('.modal-content');
 
-                if (mobileMenu && navLinks) {
-                    mobileMenu.addEventListener("click", () => {
-                        navLinks.classList.toggle("active");
-                        mobileMenu.classList.toggle("active");
-                    });
-                }
+            // Updated modal content descriptions based on the revised education information
+            const descriptions = {
+                'btech-modal': `
+            <h3>Master of Computer Science</h3><br>
+            <p>
+                Pursuing a Master of Computer Science degree at Stanford University (2023-2025). The program 
+                focuses on advanced algorithms, artificial intelligence, and distributed systems.
+            </p><br>
 
-                // Modal setup
-                setupModals();
+            <p><b>Key Areas of Study:</b></p><br>
+            <ul>
+                <li>Advanced Algorithms & Computational Theory</li>
+                <li>Machine Learning & Artificial Intelligence</li>
+                <li>Distributed Systems & Cloud Computing</li>
+                <li>Computer Vision & Deep Learning</li>
+            </ul><br>
 
-                // Only run GSAP if it's loaded and device is desktop
-                if (typeof gsap !== 'undefined' && window.matchMedia('(min-width: 768px)').matches) {
-                    setupGsapAnimations();
-                }
-            }, 10); // Very small delay to prioritize rendering
+            <p><b>Academic Highlights:</b></p><br>
+            <ul>
+                <li>Research assistant in the AI Lab</li>
+                <li>Maintaining 3.8/4.0 GPA</li>
+                <li>Specializing in cloud-native application development</li>
+                <li>Published paper on distributed systems optimization</li>
+            </ul>
+        `,
 
-            // Modal functionality - moved to a function for clarity
-            function setupModals() {
-                const descriptions = {
-                    'btech-modal': `
-                <h3>Master of Computer Science</h3><br>
-                <p>
-                    Pursuing a Master of Computer Science degree at Stanford University (2023-2025). The program 
-                    focuses on advanced algorithms, artificial intelligence, and distributed systems.
-                </p><br>
-                <p><b>Key Areas of Study:</b></p><br>
-                <ul>
-                    <li>Advanced Algorithms & Computational Theory</li>
-                    <li>Machine Learning & Artificial Intelligence</li>
-                    <li>Distributed Systems & Cloud Computing</li>
-                    <li>Computer Vision & Deep Learning</li>
-                </ul><br>
-                <p><b>Academic Highlights:</b></p><br>
-                <ul>
-                    <li>Research assistant in the AI Lab</li>
-                    <li>Maintaining 3.8/4.0 GPA</li>
-                    <li>Specializing in cloud-native application development</li>
-                    <li>Published paper on distributed systems optimization</li>
-                </ul>
-            `,
-                    'diploma-modal': `
-                <h3>B.Tech in Computer Science</h3><br>
-                <p>
-                    Completed a Bachelor of Technology in Computer Science from Indian Institute of Technology (2019–2023),
-                    building a strong foundation in computer science fundamentals and software engineering.
-                </p><br>
-                <p><b>Curriculum Highlights:</b></p><br>
-                <ul>
-                    <li>Data Structures & Algorithms</li>
-                    <li>Operating Systems & Computer Architecture</li>
-                    <li>Database Management Systems</li>
-                    <li>Software Engineering & Design Patterns</li>
-                </ul><br>
-                <p><b>Academic Achievements:</b></p><br>
-                <ul>
-                    <li>Graduated with 9.2/10 CGPA</li>
-                    <li>Dean's List for academic excellence</li>
-                    <li>Led team project for campus navigation app</li>
-                    <li>Teaching Assistant for Data Structures course</li>
-                </ul>
-            `,
-                    'aws-modal': `
-                <h3>AWS Solutions Architect Professional</h3><br>
-                <p>
-                    Earned the AWS Solutions Architect Professional certification (2024), demonstrating expertise in designing
-                    distributed systems and applications on AWS cloud platform.
-                </p><br>
-                <p><b>Key Competencies:</b></p><br>
-                <ul>
-                    <li>Architectural best practices for AWS cloud</li>
-                    <li>Multi-tier and serverless application design</li>
-                    <li>Migration strategies and cost optimization</li>
-                    <li>Advanced security and compliance implementations</li>
-                </ul><br>
-                <p><b>Skills Acquired:</b></p><br>
-                <ul>
-                    <li>Designing highly available and fault-tolerant systems</li>
-                    <li>Implementing cost-effective cloud solutions</li>
-                    <li>Integration of various AWS services for enterprise needs</li>
-                    <li>Performance optimization for cloud applications</li>
-                </ul>
-            `,
-                    'webdesign-modal': `
-                <h3>React Native Specialization</h3><br>
-                <p>Completed the React Native Specialization from Meta (Jan 2024), mastering cross-platform mobile application
-                    development.</p><br>
-                <p><b>Skills Acquired:</b></p><br>
-                <ul>
-                    <li>Cross-platform mobile UI development</li>
-                    <li>State management with Redux and Context API</li>
-                    <li>Navigation and routing in React Native</li>
-                    <li>Integration with native device features</li>
-                </ul><br>
-                <p><b>Projects Completed:</b></p><br>
-                <ul>
-                    <li>Social media mobile application</li>
-                    <li>E-commerce app with payment integration</li>
-                    <li>Location-based services application</li>
-                    <li>Real-time messaging platform</li>
-                    <li>Cross-platform photo sharing app</li>
-                    <li>Task management application</li>
-                </ul>
-            `,
-                    'google-modal': `
-                <h3>Advanced Frontend Development</h3><br>
-                <p>
-                    Completed Advanced Frontend Development certification from Google (Dec 2023), focusing on modern frontend
-                    architecture, performance optimization, and advanced JavaScript.
-                </p><br>
-                <p><b>Topics Covered:</b></p><br>
-                <ul>
-                    <li>Modern JavaScript (ES6+) and TypeScript</li>
-                    <li>Performance optimization and web vitals</li>
-                    <li>Progressive Web Apps (PWAs)</li>
-                    <li>Advanced CSS and animation techniques</li>
-                </ul><br>
-                <p><b>Skills Gained:</b></p><br>
-                <ul>
-                    <li>Accessibility implementation (WCAG standards)</li>
-                    <li>Frontend testing and CI/CD pipelines</li>
-                    <li>Advanced state management patterns</li>
-                    <li>Micro-frontend architecture</li>
-                </ul>
-            `
-                };
+                'diploma-modal': `
+            <h3>B.Tech in Computer Science</h3><br>
+            <p>
+                Completed a Bachelor of Technology in Computer Science from Indian Institute of Technology (2019–2023),
+                building a strong foundation in computer science fundamentals and software engineering.
+            </p><br>
 
-                const modal = document.getElementById('modal-container');
-                const modalText = document.getElementById('modal-text');
-                const modalClose = document.querySelector('.modal-close');
-                const modalContent = document.querySelector('.modal-content');
+            <p><b>Curriculum Highlights:</b></p><br>
+            <ul>
+                <li>Data Structures & Algorithms</li>
+                <li>Operating Systems & Computer Architecture</li>
+                <li>Database Management Systems</li>
+                <li>Software Engineering & Design Patterns</li>
+            </ul><br>
 
-                if (!modal || !modalText || !modalClose || !modalContent) return;
+            <p><b>Academic Achievements:</b></p><br>
+            <ul>
+                <li>Graduated with 9.2/10 CGPA</li>
+                <li>Dean's List for academic excellence</li>
+                <li>Led team project for campus navigation app</li>
+                <li>Teaching Assistant for Data Structures course</li>
+            </ul>
+        `,
 
-                // Use event delegation for modal opening
-                document.addEventListener('click', function (e) {
-                    const item = e.target.closest('.timeline-item');
-                    if (item) {
-                        const modalId = item.getAttribute('data-modal-id');
-                        if (descriptions[modalId]) {
-                            modalText.innerHTML = descriptions[modalId];
-                            modal.style.display = 'flex';
-                            requestAnimationFrame(() => {
-                                modalContent.classList.add('show');
-                            });
-                        }
+                'aws-modal': `
+            <h3>AWS Solutions Architect Professional</h3><br>
+            <p>
+                Earned the AWS Solutions Architect Professional certification (2024), demonstrating expertise in designing
+                distributed systems and applications on AWS cloud platform.
+            </p><br>
+
+            <p><b>Key Competencies:</b></p><br>
+            <ul>
+                <li>Architectural best practices for AWS cloud</li>
+                <li>Multi-tier and serverless application design</li>
+                <li>Migration strategies and cost optimization</li>
+                <li>Advanced security and compliance implementations</li>
+            </ul><br>
+
+            <p><b>Skills Acquired:</b></p><br>
+            <ul>
+                <li>Designing highly available and fault-tolerant systems</li>
+                <li>Implementing cost-effective cloud solutions</li>
+                <li>Integration of various AWS services for enterprise needs</li>
+                <li>Performance optimization for cloud applications</li>
+            </ul>
+        `,
+
+                'webdesign-modal': `
+            <h3>React Native Specialization</h3><br>
+            <p>Completed the React Native Specialization from Meta (Jan 2024), mastering cross-platform mobile application
+                development.</p><br>
+            <p><b>Skills Acquired:</b></p><br>
+            <ul>
+                <li>Cross-platform mobile UI development</li>
+                <li>State management with Redux and Context API</li>
+                <li>Navigation and routing in React Native</li>
+                <li>Integration with native device features</li>
+            </ul><br>
+            <p><b>Projects Completed:</b></p><br>
+            <ul>
+                <li>Social media mobile application</li>
+                <li>E-commerce app with payment integration</li>
+                <li>Location-based services application</li>
+                <li>Real-time messaging platform</li>
+                <li>Cross-platform photo sharing app</li>
+                <li>Task management application</li>
+            </ul>
+        `,
+
+                'google-modal': `
+            <h3>Advanced Frontend Development</h3><br>
+            <p>
+                Completed Advanced Frontend Development certification from Google (Dec 2023), focusing on modern frontend
+                architecture, performance optimization, and advanced JavaScript.
+            </p><br>
+
+            <p><b>Topics Covered:</b></p><br>
+            <ul>
+                <li>Modern JavaScript (ES6+) and TypeScript</li>
+                <li>Performance optimization and web vitals</li>
+                <li>Progressive Web Apps (PWAs)</li>
+                <li>Advanced CSS and animation techniques</li>
+            </ul><br>
+
+            <p><b>Skills Gained:</b></p><br>
+            <ul>
+                <li>Accessibility implementation (WCAG standards)</li>
+                <li>Frontend testing and CI/CD pipelines</li>
+                <li>Advanced state management patterns</li>
+                <li>Micro-frontend architecture</li>
+            </ul>
+        `
+            };
+
+            // Open Modal
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                item.addEventListener('click', function () {
+                    const modalId = this.getAttribute('data-modal-id');
+                    if (descriptions[modalId]) {
+                        modalText.innerHTML = descriptions[modalId];
+                        modal.style.display = 'flex';
+                        setTimeout(() => {
+                            modalContent.classList.add('show');
+                        }, 10);
                     }
                 });
+            });
 
-                // Modal close functionality
-                modalClose.addEventListener('click', closeModal);
+            // Close Modal
+            modalClose.addEventListener('click', () => {
+                modalContent.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 300); // Reduced from 500ms for faster close
+            });
 
-                window.addEventListener('click', (e) => {
-                    if (e.target === modal) closeModal();
-                });
-
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
-                });
-
-                function closeModal() {
+            // Close modal when clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
                     modalContent.classList.remove('show');
                     setTimeout(() => {
                         modal.style.display = 'none';
-                    }, 200);
+                    }, 300); // Reduced from 500ms for faster close
                 }
-            }
+            });
 
-            // GSAP animations - moved to a function and only run after cards are visible
-            function setupGsapAnimations() {
-                if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-                    gsap.registerPlugin(ScrollTrigger);
+            // Add escape key support for modal
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    modalContent.classList.remove('show');
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                    }, 300); // Reduced from 500ms for faster close
+                }
+            });
 
-                    // Only add animations to items after they're already visible
-                    gsap.set('.timeline-item', { clearProps: "all" });
+            // GSAP Timeline Animation enhancements
+            if (window.matchMedia('(min-width: 768px)').matches) {
+                gsap.registerPlugin(ScrollTrigger);
 
-                    // Add hover animations only (no initial fade-in since cards are already visible)
-                    document.querySelectorAll('.timeline-item').forEach((item) => {
-                        item.addEventListener('mouseenter', () => {
-                            gsap.to(item, {
-                                scale: 1.02,
-                                boxShadow: "0 8px 20px rgba(0, 0, 0, 0.12)",
-                                duration: 0.2
-                            });
-                        }, { passive: true });
+                // Enhanced timeline animations
+                gsap.from('.education h1', {
+                    y: -30,
+                    opacity: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.education h1',
+                        start: "top 80%",
+                        toggleActions: "play none none none"
+                    }
+                });
 
-                        item.addEventListener('mouseleave', () => {
-                            gsap.to(item, {
-                                scale: 1,
-                                boxShadow: "0 4px 15px rgba(0, 0, 0, 0.08)",
-                                duration: 0.2
-                            });
-                        }, { passive: true });
+                // Apply staggered animations to timeline items
+                gsap.from('.timeline-item', {
+                    y: 50,
+                    opacity: 0,
+                    duration: 0.8,
+                    stagger: 0.2,
+                    scrollTrigger: {
+                        trigger: '.timeline',
+                        start: "top 75%",
+                        toggleActions: "play none none none"
+                    }
+                });
+
+                // Add hover effect with GSAP
+                document.querySelectorAll('.timeline-item').forEach((item) => {
+                    item.addEventListener('mouseenter', () => {
+                        gsap.to(item, {
+                            scale: 1.03,
+                            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.15)",
+                            duration: 0.3
+                        });
                     });
-                }
+
+                    item.addEventListener('mouseleave', () => {
+                        gsap.to(item, {
+                            scale: 1,
+                            boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
+                            duration: 0.3
+                        });
+                    });
+                });
             }
         });
     </script>
