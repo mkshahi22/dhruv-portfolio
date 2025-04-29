@@ -304,6 +304,7 @@
             }
         }
 
+        /* Enhanced Profile Image Styles */
         .profile-img {
             width: 200px;
             height: 200px;
@@ -312,18 +313,99 @@
             background: linear-gradient(#1e293b, #1e293b) padding-box,
                 var(--gradient-primary) border-box;
             margin-bottom: 25px;
-            transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out, filter 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                box-shadow 0.5s ease-in-out,
+                filter 0.5s ease-in-out,
+                opacity 0.5s ease-in-out,
+                border 0.5s ease-in-out;
             object-fit: cover;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             opacity: 1;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
         }
 
         .profile-img:hover {
             transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            filter: brightness(1.4) contrast(1.1) saturate(1.0);
-            opacity: 0.9;
-            transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out, filter 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
+            filter: brightness(1.2) contrast(1.1) saturate(1.1);
+            opacity: 0.95;
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+                box-shadow 0.3s ease-in-out,
+                filter 0.3s ease-in-out,
+                opacity 0.3s ease-in-out;
+            border: 4px solid transparent;
+            background: linear-gradient(#1e293b, #1e293b) padding-box,
+                var(--gradient-secondary) border-box;
+            animation-play-state: paused;
+        }
+
+        /* Add glow effect on hover */
+        .profile-img::after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .profile-img:hover::after {
+            opacity: 1;
+            animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+        }
+
+        /* Click effect */
+        .profile-img:active {
+            transform: scale(0.95);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        body.light-mode .profile-img {
+            background: linear-gradient(var(--card-light), var(--card-light)) padding-box,
+                var(--gradient-primary) border-box;
+        }
+
+        body.light-mode .profile-img:hover {
+            background: linear-gradient(var(--card-light), var(--card-light)) padding-box,
+                var(--gradient-secondary) border-box;
         }
 
         .about-hero h1 {
