@@ -5,32 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dhruv Tripathi | Projects Portfolio</title>
+
+    <!-- SEO Meta Tags -->
     <meta name="description"
         content="Explore my portfolio of web development projects showcasing expertise in React, Node.js, Cloud Solutions, and innovative applications.">
     <meta name="keywords"
         content="Dhruv Tripathi, Projects Portfolio, Full-Stack Development, Web Applications, React, Node.js, JavaScript, Portfolio">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Dhruv Tripathi">
-    <link rel="canonical" href="https://dhruv-tripathi.dev/project.html">
+    <link rel="canonical" href="https://dhruv-tripathi.netlify.app/project.html">
 
-    <!-- Open Graph for Social Media -->
+    <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Dhruv Tripathi | Projects Portfolio">
     <meta property="og:description"
         content="Explore my portfolio of web development projects showcasing expertise in React, Node.js, Cloud Solutions, and innovative applications.">
-    <meta property="og:image" content="https://dhruv-tripathi.dev/web.png">
-    <meta property="og:url" content="https://dhruv-tripathi.dev/project.html">
+    <meta property="og:image" content="https://dhruv-tripathi.netlify.app/image/project.webp">
+    <meta property="og:url" content="https://dhruv-tripathi.netlify.app/project.html">
     <meta property="og:site_name" content="Dhruv Tripathi Portfolio">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:creator" content="@dhruv_codes">
-    <meta name="twitter:title" content="Dhruv Tripathi | Projects Portfolio">
-    <meta name="twitter:description"
-        content="Explore my portfolio of web development projects showcasing expertise in React, Node.js, Cloud Solutions, and innovative applications.">
-    <meta name="twitter:image" content="https://dhruv-tripathi.dev/web.png">
+    <!-- Additional SEO Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="google" content="notranslate">
+    <meta name="language" content="en">
+    <meta name="rating" content="general">
 
-    <link rel="shortcut icon" href="fav.webp" type="image/x-icon">
+    <!-- Structured Data for Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Dhruv Tripathi",
+      "url": "https://dhruv-tripathi.netlify.app/project.html",
+      "image": "https://dhruv-tripathi.netlify.app/image/project.webp",
+      "description": "Explore my portfolio of web development projects showcasing expertise in React, Node.js, Cloud Solutions, and innovative applications.",
+      "mainEntityOfPage": "https://dhruv-tripathi.netlify.app/project.html",
+      "sameAs": [
+        "https://www.linkedin.com/in/dhruv-tripathi-758447288/"
+      ]
+    }
+    </script>
+
+
+    <link rel="shortcut icon" href="./image/fav.webp" type="image/x-icon">
 
     <!-- Preload critical assets -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style"
@@ -1145,7 +1163,7 @@
                 <div class="project-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400"
                     data-category="web,html,mini" data-id="portfolio-website">
                     <div class="project-card-image-container">
-                        <img src="project.jpg" alt="Portfolio Website" class="lazy-image">
+                        <img src="./image/index.webp" alt="Portfolio Website" class="lazy-image">
                         <div class="project-tech-tags">
                             <span class="tech-tag">HTML5</span>
                             <span class="tech-tag">CSS3</span>
@@ -1157,10 +1175,10 @@
                         <p>Personal portfolio website showcasing my projects, skills, and expertise with a responsive
                             design and smooth animations for enhanced user experience.</p>
                         <div class="project-links">
-                            <a href="https://github.com/dhruv-tripathi/portfolio" class="project-link">
+                            <a href="https://github.com/dhruv865" class="project-link">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
-                            <a href="#" class="project-link">
+                            <a href="index.html" class="project-link">
                                 <i class="fas fa-external-link-alt"></i> Live Site
                             </a>
                         </div>
@@ -1190,7 +1208,7 @@
                     <i class="fas fa-times"></i>
                 </button>
                 <div class="modal-header">
-                    <img src="/api/placeholder/900/300" alt="Project Image" class="modal-image" id="modal-image">
+                    <img src="./image/index.webp" alt="Project Image" class="modal-image" id="modal-image">
                 </div>
                 <div class="modal-content">
                     <h2 class="modal-title" id="modal-title">Project Title</h2>
@@ -1416,7 +1434,7 @@
             const projectData = {
                 'portfolio-website': {
                     title: 'Portfolio Website',
-                    image: 'project.webp',
+                    image: './image/index.webp',
                     techStack: ['HTML5', 'CSS3', 'JavaScript', 'AOS Animation Library', 'Responsive Design'],
                     description: 'A personal portfolio website showcasing my projects, skills, and professional experience. The site features a responsive design that adapts to any device size, smooth scrolling animations, and an intuitive navigation system to highlight my work and capabilities.',
                     features: [
@@ -1432,8 +1450,8 @@
                     ],
                     challenges: 'Creating a unified design language that worked consistently across both light and dark themes was challenging. I addressed this by implementing a comprehensive CSS variable system that allowed for theme-specific styling while maintaining visual consistency. Another challenge was optimizing image loading for the project gallery, which I solved by implementing a lazy loading system that only loads images as they enter the viewport.',
                     links: [
-                        { name: 'GitHub Repository', url: 'https://github.com/dhruv-tripathi/portfolio', icon: 'fab fa-github' },
-                        { name: 'Live Site', url: '#', icon: 'fas fa-external-link-alt' }
+                        { name: 'GitHub Repository', url: 'https://github.com/dhruv865', icon: 'fab fa-github' },
+                        { name: 'Live Site', url: 'index.html', icon: 'fas fa-external-link-alt' }
                     ]
                 },
                 // Add more projects here as needed
