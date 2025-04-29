@@ -1067,7 +1067,20 @@
                 themeIcon.classList.replace('fa-moon', 'fa-sun');
             }
 
-            // Theme toggle functionality
+            // Add CSS for rotation animation
+            const style = document.createElement('style');
+            style.textContent = `
+        @keyframes rotate-animation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .rotate-animation {
+            animation: rotate-animation 0.5s ease-in-out;
+        }
+    `;
+            document.head.appendChild(style);
+
+            // Theme toggle functionality with rotation
             themeToggle.addEventListener('click', function () {
                 document.body.classList.toggle('light-mode');
                 const isDark = !document.body.classList.contains('light-mode');
@@ -1081,12 +1094,15 @@
                 } else {
                     themeIcon.classList.replace('fa-moon', 'fa-sun');
                 }
+
+                // Add rotation animation
+                themeToggle.classList.add('rotate-animation');
+                setTimeout(() => themeToggle.classList.remove('rotate-animation'), 500);
             });
 
             // Mobile Menu Toggle
             const mobileMenu = document.getElementById("mobile-menu");
             const navLinks = document.getElementById("nav-links");
-
             mobileMenu.addEventListener("click", () => {
                 navLinks.classList.toggle("active");
                 mobileMenu.classList.toggle("active");
@@ -1095,11 +1111,9 @@
             // Form submission handling
             const form = document.getElementById('contact-form');
             const statusMessage = document.getElementById('status-message');
-
             form.addEventListener('submit', function (e) {
                 // Don't prevent default form submission
                 // This allows Netlify to handle the form naturally
-
                 // Let's show a sending message
                 showStatus('Sending your message...', true);
             });
@@ -1119,13 +1133,11 @@
             function showStatus(message, isSuccess) {
                 statusMessage.textContent = message;
                 statusMessage.style.display = 'block';
-
                 if (isSuccess) {
                     statusMessage.className = 'status-message status-success';
                 } else {
                     statusMessage.className = 'status-message status-error';
                 }
-
                 // Hide success message after 5 seconds
                 if (isSuccess) {
                     setTimeout(() => {

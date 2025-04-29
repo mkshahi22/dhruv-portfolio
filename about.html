@@ -1010,7 +1010,20 @@
                 themeIcon.classList.replace('fa-moon', 'fa-sun');
             }
 
-            // Theme toggle functionality
+            // Add rotation animation CSS
+            const style = document.createElement('style');
+            style.textContent = `
+        @keyframes rotate-animation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .rotate-animation {
+            animation: rotate-animation 0.5s ease-in-out;
+        }
+    `;
+            document.head.appendChild(style);
+
+            // Theme toggle functionality with rotation
             themeToggle.addEventListener('click', function () {
                 document.body.classList.toggle('light-mode');
                 const isDark = !document.body.classList.contains('light-mode');
@@ -1024,6 +1037,10 @@
                 } else {
                     themeIcon.classList.replace('fa-moon', 'fa-sun');
                 }
+
+                // Add rotation animation
+                themeToggle.classList.add('rotate-animation');
+                setTimeout(() => themeToggle.classList.remove('rotate-animation'), 500);
             });
 
             // Mobile Menu Toggle

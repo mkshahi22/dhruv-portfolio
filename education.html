@@ -551,7 +551,7 @@
         }
 
         .modal-content ul li::before {
-            content: "•";
+            content: "";
             color: var(--primary-color);
             font-weight: bold;
             display: inline-block;
@@ -882,7 +882,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
 
-    <script>document.addEventListener("DOMContentLoaded", function () {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
             // Initialize AOS with improved settings
             AOS.init({
                 once: false,
@@ -904,7 +905,20 @@
                 themeIcon.classList.replace('fa-moon', 'fa-sun');
             }
 
-            // Enhanced theme toggle with animation
+            // Add CSS for the rotating animation
+            const style = document.createElement('style');
+            style.textContent = `
+        @keyframes rotate-theme-toggle {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .theme-rotate {
+            animation: rotate-theme-toggle 0.5s ease-in-out;
+        }
+    `;
+            document.head.appendChild(style);
+
+            // Enhanced theme toggle with animation and rotation
             themeToggle.addEventListener('click', function () {
                 // Add transition class for smooth body background change
                 document.body.classList.add('theme-transition');
@@ -915,6 +929,10 @@
 
                 // Save preference
                 localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+                // Add rotation animation to the toggle button
+                themeToggle.classList.add('theme-rotate');
+                setTimeout(() => themeToggle.classList.remove('theme-rotate'), 500);
 
                 // Animate icon change
                 if (isDark) {
@@ -979,11 +997,11 @@
             // Updated modal content based on the HTML
             const descriptions = {
                 'btech-modal': `
-                <h3>B.Tech in Computer Science and Engineering (Specialization in Cybersecurity)</h3><br>
+<h3>B.Tech in Computer Science and Engineering (Specialization in Cybersecurity)</h3>
 <p>
     Currently pursuing a Bachelor of Technology in Computer Science and Engineering (Cybersecurity specialization) at Galgotias University (2024–2027). The program emphasizes cybersecurity principles, software development, core computer science concepts, and industry-relevant skills.
 </p><br>
-<p><b>Key Areas of Study:</b></p><br>
+<p><b>Key Areas of Study:</b></p>
 <ul>
     <li>Cybersecurity Fundamentals & Ethical Hacking</li>
     <li>Data Structures & Algorithms</li>
@@ -991,28 +1009,27 @@
     <li>Database Management Systems (DBMS)</li>
     <li>Web Development and Application Security</li>
 </ul><br>
-<p><b>Academic Highlights:</b></p><br>
+<p><b>Academic Highlights:</b></p>
 <ul>
     <li>Focused on cybersecurity, full-stack development, and secure cloud solutions</li>
     <li>Actively participating in tech projects and cybersecurity workshops</li>
     <li>Consistently maintaining strong academic performance</li>
 </ul>
-
-            `,
+`,
 
                 'diploma-modal': `
-                <h3>Diploma in Computer Science and Engineering</h3><br>
+<h3>Diploma in Computer Science and Engineering</h3>
 <p>
     Completed Diploma in Computer Science and Engineering from United University, Prayagraj (2021–2024), building a solid foundation in programming, data structures, algorithms, and networking.
 </p><br>
-<p><b>Curriculum Highlights:</b></p><br>
+<p><b>Curriculum Highlights:</b></p>
 <ul>
     <li>Core Programming Concepts & Data Structures</li>
     <li>Fundamentals of Networking and Cybersecurity</li>
     <li>Database Management and Object-Oriented Programming</li>
     <li>Web Development and Software Engineering</li>
 </ul><br>
-<p><b>Academic Highlights:</b></p><br>
+<p><b>Academic Highlights:</b></p>
 <ul>
     <li>Achieved strong academic performance with a focus on practical programming skills</li>
     <li>Developed a deep understanding of computer science fundamentals</li>
@@ -1020,50 +1037,28 @@
     <li>Built a foundation for further education in full-stack development and cybersecurity</li>
 </ul>
 
-            `,
+    `,
 
                 'hackathon-modal': `
-                <h3>Hackathon Certificate of Achievement</h3><br>
+<h3>Hackathon Certificate of Achievement</h3>
 <p>
     Awarded the Hackathon Certificate of Achievement for successfully completing a competitive coding challenge and showcasing problem-solving skills in a timed environment. Participated in the event organized by GiveMyCertificate in January 2024.
 </p><br>
-<p><b>Skills Acquired:</b></p><br>
+<p><b>Skills Acquired:</b></p>
 <ul>
     <li>Problem-solving and algorithm design</li>
     <li>Collaborative teamwork and project management</li>
     <li>Time management under pressure</li>
     <li>Effective communication and presentation skills</li>
 </ul><br>
-<p><b>Projects Implemented:</b></p><br>
+<p><b>Projects Implemented:</b></p>
 <ul>
     <li>Developed innovative solutions for real-world problems within a limited time frame</li>
     <li>Worked in a team to create a fully functional application prototype</li>
     <li>Presented the solution to judges, demonstrating technical expertise and creativity</li>
 </ul>
 
-            `,
-
-                'react-modal': `
-                <h3>React Native Specialization</h3><br>
-                <p>
-                    Completed the React Native Specialization from Meta in November 2023, focusing on cross-platform mobile application development.
-                </p><br>
-                <p><b>Core Concepts Mastered:</b></p><br>
-                <ul>
-                    <li>React Native fundamentals and component architecture</li>
-                    <li>State management with Redux and Context API</li>
-                    <li>Navigation and routing in mobile applications</li>
-                    <li>Integration with native device features</li>
-                    <li>Performance optimization techniques</li>
-                </ul><br>
-                <p><b>Capstone Projects:</b></p><br>
-                <ul>
-                    <li>Developed a food delivery application with live tracking</li>
-                    <li>Created a social media app with photo sharing capabilities</li>
-                    <li>Built a productivity tool with offline support</li>
-                    <li>Implemented authentication and user profile management</li>
-                </ul>
-            `
+    `
             };
 
             // Enhanced modal open with smooth animation
@@ -1234,7 +1229,8 @@
             window.addEventListener('resize', () => {
                 AOS.refresh();
             });
-        });</script>
+        });
+    </script>
 </body>
 
 </html>

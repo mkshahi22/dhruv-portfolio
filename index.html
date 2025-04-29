@@ -820,8 +820,29 @@
                 themeIcon.classList.replace('fa-moon', 'fa-sun');
             }
 
-            // Theme toggle functionality
+            // Add CSS for rotation animation
+            const style = document.createElement('style');
+            style.textContent = `
+        @keyframes rotate-theme-toggle {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .theme-rotate {
+            animation: rotate-theme-toggle 0.5s ease-in-out;
+        }
+    `;
+            document.head.appendChild(style);
+
+            // Theme toggle functionality with rotation
             themeToggle.addEventListener('click', function () {
+                // Add rotation class
+                themeToggle.classList.add('theme-rotate');
+
+                // Remove rotation class after animation completes
+                setTimeout(() => {
+                    themeToggle.classList.remove('theme-rotate');
+                }, 500);
+
                 document.body.classList.toggle('light-mode');
                 const isDark = !document.body.classList.contains('light-mode');
 
