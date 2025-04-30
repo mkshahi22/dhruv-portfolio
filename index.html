@@ -381,52 +381,86 @@
             display: flex;
             justify-content: center;
             gap: 25px;
+            flex-wrap: wrap;
+            padding: 10px 0;
         }
 
         .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 55px;
+            height: 55px;
+            font-size: 24px;
+            border-radius: 50%;
             text-decoration: none;
             color: var(--text-dark);
-            font-size: 24px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--card-dark);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: all var(--transition-speed) ease-in-out;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
         }
 
         body.light-mode .social-links a {
             color: var(--text-light);
-            background: var(--card-light);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
         }
 
-        .social-links a:hover {
-            transform: translateY(-5px);
+        .social-links a:hover,
+        .social-links a:focus-visible {
+            transform: translateY(-6px) scale(1.07);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            text-decoration: none;
         }
 
+        /* Platform-specific hover colors */
         .social-links a[href*="github"]:hover {
-            color: #4078c0;
-            box-shadow: 0 8px 20px rgba(64, 120, 192, 0.2);
+            background: #24292e;
+            /* Dark background for GitHub */
+            color: white;
+            /* Ensure icon is visible */
+            box-shadow: 0 12px 30px rgba(36, 41, 46, 0.3);
         }
 
         .social-links a[href*="linkedin"]:hover {
-            color: #0077b5;
-            box-shadow: 0 8px 20px rgba(0, 119, 181, 0.2);
+            background: #0077b5;
+            /* LinkedIn blue */
+            color: white;
+            /* White icon */
+            box-shadow: 0 12px 30px rgba(0, 119, 181, 0.3);
+        }
+
+        .social-links a[href*="instagram"]:hover {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+            /* White icon */
+            box-shadow: 0 12px 30px rgba(225, 48, 108, 0.3);
         }
 
         .social-links a[href*="twitter"]:hover,
         .social-links a[href*="x.com"]:hover {
-            color: #1DA1F2;
-            box-shadow: 0 8px 20px rgba(29, 161, 242, 0.2);
+            background: #1da1f2;
+            /* Twitter blue */
+            color: white;
+            /* White icon */
+            box-shadow: 0 12px 30px rgba(29, 161, 242, 0.3);
         }
 
-        .social-links a[href*="instagram"]:hover {
-            color: #E1306C;
-            box-shadow: 0 8px 20px rgba(225, 48, 108, 0.2);
+        /* Mobile Responsive */
+        @media (max-width: 480px) {
+            .social-links {
+                gap: 18px;
+            }
+
+            .social-links a {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+            }
         }
 
         /* Call-to-Action Buttons */

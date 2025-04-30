@@ -371,16 +371,16 @@
         /* Project Cards */
         .project-card {
             background: var(--card-dark);
-            border-radius: 15px;
+            border-radius: 18px;
             width: 350px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(99, 102, 241, 0.2);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease-in-out;
+            border: 1px solid rgba(99, 102, 241, 0.25);
             opacity: 1;
             transform: translateY(0);
             position: relative;
-            height: 450px;
+            height: 470px;
             display: flex;
             flex-direction: column;
             cursor: pointer;
@@ -388,7 +388,7 @@
 
         body.light-mode .project-card {
             background: var(--card-light);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
             border: 1px solid rgba(99, 102, 241, 0.1);
         }
 
@@ -397,8 +397,8 @@
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3);
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.35);
             border-color: rgba(99, 102, 241, 0.5);
         }
 
@@ -412,7 +412,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: transform 0.35s ease;
         }
 
         .project-card:hover img {
@@ -425,20 +425,21 @@
             left: 10px;
             display: flex;
             flex-wrap: wrap;
-            gap: 5px;
+            gap: 6px;
         }
 
         .tech-tag {
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(15, 23, 42, 0.85);
             color: var(--primary-color);
-            padding: 4px 10px;
-            border-radius: 6px;
+            padding: 5px 12px;
+            border-radius: 8px;
             font-size: 12px;
             font-weight: 500;
         }
 
         body.light-mode .tech-tag {
-            background: rgba(248, 250, 252, 0.8);
+            background: rgba(248, 250, 252, 0.9);
+            color: var(--primary-color);
         }
 
         .project-card-content {
@@ -451,14 +452,14 @@
 
         .project-card h3 {
             color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 20px;
-            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 22px;
+            font-weight: 700;
         }
 
         .project-card p {
             color: var(--text-muted-dark);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             line-height: 1.6;
             flex-grow: 1;
             font-size: 14px;
@@ -476,27 +477,29 @@
 
         .project-link {
             text-decoration: none;
-            color: var(--text-dark);
-            background: var(--card-dark);
-            padding: 8px 15px;
+            color: var(--text-light);
+            /* Corrected for light mode */
+            background: var(--primary-color);
+            padding: 9px 16px;
             border-radius: 8px;
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             font-size: 14px;
-            font-weight: 500;
-            border: 1px solid rgba(99, 102, 241, 0.3);
+            font-weight: 600;
+            border: none;
         }
 
         body.light-mode .project-link {
-            background: var(--background-light);
-            color: var(--text-light);
+            color: white;
+            background: var(--primary-color);
         }
 
         .project-link:hover {
-            background: var(--primary-color);
-            color: white;
+            background: white;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
         }
@@ -761,10 +764,11 @@
             transition: all 0.3s;
             font-weight: 600;
             flex: 1;
-            max-width: 200px;
+            max-width: fit-content;
             position: relative;
             overflow: hidden;
             z-index: 1;
+            height: 45px;
         }
 
         .modal-link::before {
