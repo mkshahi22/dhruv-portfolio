@@ -901,6 +901,11 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // Initialize dynamic background
+            setupDynamicBackground();
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            updateDynamicBackground(savedTheme === 'dark');
+
             // Initialize AOS with improved settings
             AOS.init({
                 once: false,
@@ -912,7 +917,6 @@
             });
 
             // Theme handling with updated approach to match other pages
-            const savedTheme = localStorage.getItem('theme') || 'dark';
             const themeToggle = document.getElementById('theme-toggle');
             const themeIcon = themeToggle.querySelector('i');
 
@@ -957,6 +961,9 @@
                 } else {
                     themeIcon.classList.replace('fa-moon', 'fa-sun');
                 }
+
+                // Update dynamic background when theme changes
+                updateDynamicBackground(isDark);
             });
 
             // Mobile Menu Toggle with improved animation
@@ -1040,8 +1047,7 @@
     <li>Engaged in hands-on projects, including web development and database management</li>
     <li>Built a foundation for further education in full-stack development and cybersecurity</li>
 </ul>
-
-    `,
+`,
 
                 'hackathon-modal': `
 <h3>Hackathon Certificate of Achievement</h3>
@@ -1061,8 +1067,7 @@
     <li>Worked in a team to create a fully functional application prototype</li>
     <li>Presented the solution to judges, demonstrating technical expertise and creativity</li>
 </ul>
-
-    `
+`
             };
 
             // Enhanced modal open with smooth animation
@@ -1186,7 +1191,6 @@
             const timelineItems = document.querySelectorAll('.timeline-item');
             let hoverSound;
 
-
             // Add scroll snap behavior for better timeline navigation
             const timelineSection = document.querySelector('.timeline');
             if (timelineSection && window.innerWidth >= 1024) {
@@ -1232,8 +1236,115 @@
             // Add resize handler to reinitialize AOS on window resize
             window.addEventListener('resize', () => {
                 AOS.refresh();
+
+                // Update dynamic background on resize
+                const canvas = document.getElementById('dynamic-background');
+                if (canvas) {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                    updateDynamicBackground(document.body.classList.contains('light-mode') ? false : true);
+                }
             });
         });
+
+        // Dynamic Background Setup
+        function setupDynamicBackground() {
+            // Create a canvas element for the dynamic background
+            const canvas = document.createElement('canvas');
+            canvas.id = 'dynamic-background';
+            canvas.style.position = 'fixed';
+            canvas.style.top = '0';
+            canvas.style.left = '0';
+            canvas.style.width = '100%';
+            canvas.style.height = '100%';
+            canvas.style.zIndex = '-1';
+            canvas.style.pointerEvents = 'none';
+            canvas.style.opacity = '0.5';
+            document.body.prepend(canvas);
+
+            // Resize canvas to match window size
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        // Update dynamic background based on theme
+        function updateDynamicBackground(isDark) {
+            const canvas = document.getElementById('dynamic-background');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const particleCount = Math.floor(canvas.width * canvas.height / 15000);
+            const particles = [];
+
+            // Colors based on theme
+            const colors = isDark ?
+                ['#6e56cf', '#4338ca', '#3b82f6', '#0ea5e9', '#0d9488'] :
+                ['#ef4444', '#f97316', '#eab308', '#84cc16', '#10b981'];
+
+            // Create particles
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 2 + 1,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    velocity: {
+                        x: (Math.random() - 0.5) * 0.5,
+                        y: (Math.random() - 0.5) * 0.5
+                    }
+                });
+            }
+
+            // Animation function
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Draw and update each particle
+                particles.forEach(particle => {
+                    ctx.beginPath();
+                    ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = particle.color;
+                    ctx.fill();
+
+                    // Update position
+                    particle.x += particle.velocity.x;
+                    particle.y += particle.velocity.y;
+
+                    // Wrap around edges
+                    if (particle.x < 0) particle.x = canvas.width;
+                    if (particle.x > canvas.width) particle.x = 0;
+                    if (particle.y < 0) particle.y = canvas.height;
+                    if (particle.y > canvas.height) particle.y = 0;
+                });
+
+                // Draw connecting lines between nearby particles
+                particles.forEach((p1, i) => {
+                    particles.slice(i + 1).forEach(p2 => {
+                        const dx = p1.x - p2.x;
+                        const dy = p1.y - p2.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < 100) {
+                            ctx.beginPath();
+                            ctx.moveTo(p1.x, p1.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.strokeStyle = isDark ?
+                                `rgba(110, 86, 207, ${0.2 - distance / 500})` :
+                                `rgba(16, 185, 129, ${0.2 - distance / 500})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    });
+                });
+
+                requestAnimationFrame(animate);
+            }
+
+            // Start animation
+            animate();
+        }
     </script>
 </body>
 

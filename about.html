@@ -652,83 +652,6 @@
             left: -10px;
         }
 
-        /* Why Tech Section */
-        .why-tech {
-            background-color: rgba(15, 23, 42, 0.3);
-            padding: 100px 20px;
-            transition: background-color var(--transition-speed) ease-in-out;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .why-tech::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.05), transparent 60%),
-                radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.05), transparent 60%);
-            z-index: -1;
-        }
-
-        body.light-mode .why-tech {
-            background-color: rgba(248, 250, 252, 0.8);
-        }
-
-        .tech-container {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .tech-content {
-            flex: 1;
-            min-width: 300px;
-            text-align: left;
-        }
-
-        .tech-content h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 36px;
-            margin-bottom: 25px;
-            text-align: center;
-            font-weight: 800;
-        }
-
-        .tech-content p {
-            font-size: 17px;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            text-align: start;
-            color: var(--text-muted-dark);
-        }
-
-        body.light-mode .tech-content p {
-            color: var(--text-muted-light);
-        }
-
-        .tech-image {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-        }
-
-        .tech-image img {
-            max-width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            transition: transform var(--transition-speed) ease-in-out;
-        }
-
-        .tech-image img:hover {
-            transform: perspective(800px) rotateY(10deg);
-        }
-
         /* Background Shapes */
         .shapes {
             position: absolute;
@@ -1088,34 +1011,6 @@
                 </div> -->
             </div>
         </section>
-
-        <!-- Why Tech Section -->
-        <!-- <section class="why-tech">
-            <div class="container">
-                <div class="tech-container">
-                    <div class="tech-content" data-aos="fade-right" data-aos-duration="1000">
-                        <h2>Why I <span class="highlight">Love Tech</span></h2>
-                        <p>My passion for technology stems from its unlimited potential to transform ideas into reality.
-                            I've always been fascinated by how lines of code can create experiences that impact people's
-                            lives and solve real-world problems.</p>
-                        <p>What drives me is the constant evolution in this field - there's always something new to
-                            learn, a challenge to overcome, or a more efficient way to build solutions. This perpetual
-                            growth keeps me engaged and excited about what's next.</p>
-                        <p>I believe in creating technology that's not just functional but also intuitive and
-                            accessible. The intersection of technical excellence and user-centered design is where I
-                            focus my energy, aiming to build applications that provide genuine value while being a joy
-                            to use.</p>
-                        <p>Beyond just coding, I'm passionate about mentoring and knowledge sharing. The tech
-                            community's collaborative nature is something I deeply value, and I strive to contribute
-                            back through open-source projects, technical articles, and helping fellow developers grow.
-                        </p>
-                    </div>
-                    <div class="tech-image" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-                        <img src="./code.webp" alt="Programming workspace with code on screen" loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </section> -->
     </main>
 
     <footer class="footer">
@@ -1176,6 +1071,9 @@
                 // Add rotation animation
                 themeToggle.classList.add('rotate-animation');
                 setTimeout(() => themeToggle.classList.remove('rotate-animation'), 500);
+
+                // Update dynamic background when theme changes
+                updateDynamicBackground(isDark);
             });
 
             // Mobile Menu Toggle
@@ -1224,7 +1122,117 @@
                 yoyo: true,
                 ease: "sine.inOut"
             });
+
+            // Initialize dynamic background
+            setupDynamicBackground();
+            updateDynamicBackground(savedTheme === 'dark');
         });
+
+        // Dynamic Background Setup
+        function setupDynamicBackground() {
+            // Create a canvas element for the dynamic background
+            const canvas = document.createElement('canvas');
+            canvas.id = 'dynamic-background';
+            canvas.style.position = 'fixed';
+            canvas.style.top = '0';
+            canvas.style.left = '0';
+            canvas.style.width = '100%';
+            canvas.style.height = '100%';
+            canvas.style.zIndex = '-1';
+            canvas.style.pointerEvents = 'none';
+            canvas.style.opacity = '0.5';
+            document.body.prepend(canvas);
+
+            // Resize canvas to match window size
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            // Handle window resize
+            window.addEventListener('resize', function () {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                updateDynamicBackground(document.body.classList.contains('light-mode') ? false : true);
+            });
+        }
+
+        // Update dynamic background based on theme
+        function updateDynamicBackground(isDark) {
+            const canvas = document.getElementById('dynamic-background');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const particleCount = Math.floor(canvas.width * canvas.height / 15000);
+            const particles = [];
+
+            // Colors based on theme
+            const colors = isDark ?
+                ['#6e56cf', '#4338ca', '#3b82f6', '#0ea5e9', '#0d9488'] :
+                ['#ef4444', '#f97316', '#eab308', '#84cc16', '#10b981'];
+
+            // Create particles
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 2 + 1,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    velocity: {
+                        x: (Math.random() - 0.5) * 0.5,
+                        y: (Math.random() - 0.5) * 0.5
+                    }
+                });
+            }
+
+            // Animation function
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Draw and update each particle
+                particles.forEach(particle => {
+                    ctx.beginPath();
+                    ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = particle.color;
+                    ctx.fill();
+
+                    // Update position
+                    particle.x += particle.velocity.x;
+                    particle.y += particle.velocity.y;
+
+                    // Wrap around edges
+                    if (particle.x < 0) particle.x = canvas.width;
+                    if (particle.x > canvas.width) particle.x = 0;
+                    if (particle.y < 0) particle.y = canvas.height;
+                    if (particle.y > canvas.height) particle.y = 0;
+                });
+
+                // Draw connecting lines between nearby particles
+                particles.forEach((p1, i) => {
+                    particles.slice(i + 1).forEach(p2 => {
+                        const dx = p1.x - p2.x;
+                        const dy = p1.y - p2.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < 100) {
+                            ctx.beginPath();
+                            ctx.moveTo(p1.x, p1.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.strokeStyle = isDark ?
+                                `rgba(110, 86, 207, ${0.2 - distance / 500})` :
+                                `rgba(16, 185, 129, ${0.2 - distance / 500})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    });
+                });
+
+                requestAnimationFrame(animate);
+            }
+
+            // Start animation
+            animate();
+        }
     </script>
 </body>
 
