@@ -1188,6 +1188,40 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400"
+                    data-category="web,api,cyber,mini" data-id="cyber-news-hub">
+
+                    <div class="project-card-image-container">
+                        <img src="./image/project1.png" alt="Cyber News Hub" class="lazy-image">
+                        <div class="project-tech-tags">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">News API</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card-content">
+                        <h3>Cyber News Hub</h3>
+                        <p>
+                            A responsive web app that aggregates real-time cybersecurity news from trusted sources using
+                            APIs.
+                            Clean UI and smooth transitions ensure an engaging experience.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/techmayankofficial/cyber-news-hub" class="project-link"
+                                target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="https://cybernews-hub.netlify.app/" class="project-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Live Site
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
 
@@ -1461,6 +1495,30 @@
                         { name: 'Live Site', url: 'index.html', icon: 'fas fa-external-link-alt' }
                     ]
                 },
+
+                'cyber-news-hub': {
+                    title: 'Cyber News Hub',
+                    image: './image/project1.png',
+                    techStack: ['HTML5', 'CSS3', 'JavaScript', 'News API', 'Responsive Design', 'AOS Animation Library'],
+                    description: 'Cyber News Hub is a modern and responsive web app that curates the latest cybersecurity news from reliable sources using the News API. The app is designed with a clean interface and real-time updates to keep users informed about threats, vulnerabilities, and the latest trends in the cybersecurity world.',
+                    features: [
+                        'Real-time cybersecurity news fetched via News API',
+                        'Clean and responsive user interface for all screen sizes',
+                        'Categorized and filterable news sections',
+                        'Loading animation for better UX during API calls',
+                        'Smooth scroll-based animations using AOS library',
+                        'Dark mode support with toggle switch',
+                        'Optimized performance using lazy image loading',
+                        'Secure and sanitized API integration',
+                        'Cross-browser compatibility'
+                    ],
+                    challenges: 'Integrating real-time news via a third-party API while maintaining performance was challenging. To address this, I implemented efficient async handling and fallback messaging for slow connections or API errors. Ensuring consistent responsiveness and animation performance across devices also required detailed media query testing and lightweight code.',
+                    links: [
+                        { name: 'GitHub Repository', url: 'https://github.com/techmayankofficial/cyber-news-hub', icon: 'fab fa-github' },
+                        { name: 'Live Site', url: 'https://cybernews-hub.netlify.app/', icon: 'fas fa-external-link-alt' }
+                    ]
+                }
+
                 // Add more projects here as needed
             };
 
